@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather|Open+Sans");
+.banner {
+  background-image: url("/images/announcements/pic1.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  min-width: 536px;
+  margin: 0; }
+
+.info {
+  width: 35%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px; }
+
+#dropdowns {
+  min-width: 536px;
+  margin: 2% 0px; }
+
+.flex-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: row wrap; }
+
+.flex-child {
+  font-size: 1.2em;
+  margin: 2% 5%;
+  padding-top: 15px;
+  width: 15%;
+  justify-content: center;
+  align-content: center;
+  text-align: center; }
+
+.flex-child span.glyphicon {
+  font-size: 1.5em; }
+
+.flex-child a {
+  align-content: center; }
+
+.collapseBtn {
+  margin-top: 1%;
+  background-color: #039BE5;
+  font-size: 2em;
+  border-radius: 0;
+  border: none; }
+
+.collapseBtn:hover {
+  background-color: #0288D1; }
+
+/*# sourceMappingURL=homepage.css.map */

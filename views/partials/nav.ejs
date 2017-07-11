@@ -1,0 +1,63 @@
+<nav>
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#"><img alt="FTC logo" src="images/FTC-Logo.svg"/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/issuerouting">Issue Routing</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forms&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/startlog">Start of Week Brief</a></li>
+                            <li><a href="/endlog">End of Week Brief</a></li>
+                            <li><a href="/kudos">Kudos</a></li>
+                            <li><a href="/tutorialrequest">Tutorial Request</a></li>
+                        </ul>
+                    </li>
+                    <%
+        if (typeof user == 'object' && user) { %>
+          <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Employee Tools<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gurus/employeeView.php">Employee List</a></li>
+                        <li><a href="gurus/ratingsView.php">Gurus</a></li>
+                    </ul>
+                    </li>
+                    }
+                    <% if (user.admin) { %>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Admin Tools<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="gurus/admin/editEmps.php">Edit Employees</a></li>
+                            <li><a href="gurus/admin/editGurus.php">Edit Gurus</a></li>
+                        </ul>
+                    </li>
+                   <% }
+        } %>
+
+                </ul>
+      <% if (typeof user == 'object' && user) { %>
+        <ul class='nav navbar-nav navbar-right'>
+           <li><a href='gurus/personalInfo.php'>Welcome <%= user.name %></a></li>
+           <li><a href='/logout'><span class='glyphicon glyphicon-log-out'></span>Logout</a></li></ul>
+        <%} else { %>
+                <ul class='nav navbar-nav navbar-right'>
+                <li><a>Welcome Guest</a></li>
+                <li><a href='/login'><span class='glyphicon glyphicon-log-in'></span>Login</a></li></ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include partials/head.ejs %>
+        <link href="stylesheets/login.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <% include partials/nav.ejs %>
+        <div class="container">
+            <form class="form-signin">
+                <h2 class="form-signin-heading">Please Login</h2>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">@</span>
+                    <input type="text" name="username" id='loginUsername' class="form-control" placeholder="Username" required>
+                </div>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" id='loginBtn' type="button">Login</button>
+            </form>
+        </div>
+    <script rel="script" type="text/javascript" src="javascripts/login.js"></script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+body::-webkit-scrollbar {
+  display: none; }
+
+h1, h2, h3, h4 {
+  font-family: 'Open Sans Light', sans-serif; }
+
+p, a {
+  font-family: 'Open Sans', sans-serif; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 1%; }
+
+.navbar {
+  border-radius: 0; }
+
+.navbar img {
+  width: 300px; }
+
+.navbar-right {
+  float: right; }
+
+@media (min-width: 200px) {
+  .nav.navbar-nav.pull-right {
+    float: left !important; } }
+
+.btn {
+  border-radius: 50px; }
+
+.btn-primary {
+  background-color: #0288D1; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,17 @@
+table {
+  width: 100%; }
+  table p {
+    font-size: 12pt;
+    margin: 6px; }
+
+#left-table td {
+  width: 50%;
+  height: 126px;
+  border-collapse: collapse; }
+
+#bottom-table td {
+  width: 25%;
+  height: 120px;
+  border-collapse: collapse; }
+
+/*# sourceMappingURL=issue-routing.css.map */
