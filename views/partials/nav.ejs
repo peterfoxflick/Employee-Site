@@ -34,7 +34,7 @@
                     </ul>
                     </li>
                     }
-                    <% if (user.admin) { %>
+                    <% if (user.Admin) { %>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Admin Tools<span class="caret"></span>
@@ -50,7 +50,7 @@
                 </ul>
       <% if (typeof user == 'object' && user) { %>
         <ul class='nav navbar-nav navbar-right'>
-           <li><a href='gurus/personalInfo.php'>Welcome <%= user.name %></a></li>
+           <li><a href='gurus/personalInfo.php'>Welcome <%= user.First_Name %></a></li>
            <li><a href='/logout'><span class='glyphicon glyphicon-log-out'></span>Logout</a></li></ul>
         <%} else { %>
                 <ul class='nav navbar-nav navbar-right'>

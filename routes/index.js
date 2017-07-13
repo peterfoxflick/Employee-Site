@@ -11,7 +11,11 @@ let sess;
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index');
+  let sess = req.session;
+  console.log(sess.user);
+  res.render('index', {
+    user: sess.user
+  });
 });
 
 // GET issue routing page
@@ -62,10 +66,16 @@ router.post('/login', (req, res) => {
   let userLogin = require('../modules/login/userLogin');
   // submit the login info. If login successful, then set the session var
   userLogin(loginInfo, (err, result)=>{
-    if(err) console.log(err);
-    sess.user = result[0];
-    console.log(sess.user.Full_Name);
-    res.end();
+    if(err) {
+        res.json({
+          err: 1
+        });
+    } else {
+      sess.user = result;
+      res.json({
+        err: 0
+      })
+    }
   });
 });
 

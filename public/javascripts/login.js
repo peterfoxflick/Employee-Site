@@ -8,7 +8,12 @@ $(document).ready(function() {
       loginInfo.username = $('#loginUsername').val();
       loginInfo.password = $('#loginPassword').val();
       $.post('/login', loginInfo, function(res, status) {
-          console.log(res);
+          //noinspection EqualityComparisonWithCoercionJS
+        if(!res.err) {
+            window.location.replace("/");
+        } else {
+           $('#warning').show();
+        }
       })
    });
 });

@@ -4,7 +4,7 @@
 // console.log('made it to userLogin');
 const pool = require('../dbconnect');
 const SQL = require('sql-template-strings');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 
 /**
  * A function that logs that checks against the db
@@ -18,11 +18,22 @@ function userLogin(userLogin, callback) {
     if(err) {
       console.log(err);
       callback(err);
+    } else if(result.length) {
+      result = result[0];
+      result.Password = result.Password.replace(/^\$2y(.+)$/i, '\$2a$1');
+      if(bcrypt.compareSync(userLogin.password, result.Password)) {
+        delete result.Password;
+        callback(null, result);
+      } else {
+        callback(new Error('ERROR: Incorrect Password Provided'));
+      }
     } else {
-      callback(null, result);
+      callback(new Error('ERROR: Username not found'))
     }
   });
 
 }
+
+
 
 module.exports = userLogin;
