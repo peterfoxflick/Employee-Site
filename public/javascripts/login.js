@@ -7,7 +7,7 @@ $(document).ready(function() {
       var loginInfo = new Object();
       loginInfo.username = $('#loginUsername').val();
       loginInfo.password = $('#loginPassword').val();
-      $.post('/login', JSON.stringify(loginInfo), function(res, status) {
+      $.post('/login', loginInfo, function(res, status) {
           console.log(res);
       })
    });

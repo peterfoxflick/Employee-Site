@@ -6,16 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
     "express-sanitizer": "^1.0.2",
-    "express-sessions": "^1.0.6",
+    "express-session": "^1.15.3",
     "morgan": "~1.8.1",
     "mysql": "github:mysqljs/mysql",
     "node-sass-middleware": "0.9.8",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "sql-template-strings": "^2.2.2"
   }
 }

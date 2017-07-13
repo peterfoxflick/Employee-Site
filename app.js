@@ -7,7 +7,8 @@ let bodyParser = require('body-parser');
 let sassMiddleware = require('node-sass-middleware');
 let expressSanitizer = require('express-sanitizer');
 let index = require('./routes/index');
-let session = require('express-sessions');
+let session = require('express-session');
+let loginValidation = require('./modules/login/loginValidation');
 
 let app = express();
 
@@ -30,13 +31,18 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'rSwSOpcF3stypz3hds',
-  cookie: { maxAge: 2628000000 },
-  saveUninitialized: true,
-  resave: true
+app.use(session(
+    {secret: 'dHwSHOKF3scpzz83',
+     cookie: { maxAge: 2628000000 },
+     saveUninitialized: true,
+     resave: true
 }));
 
 app.use('/', index);
+app.use(loginValidation);
+app.get('/test/test', (req, res, next) => {
+  res.send('worked!');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
