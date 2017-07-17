@@ -21,7 +21,7 @@ function userLogin(userLogin, callback) {
     } else if(result.length) {
       result = result[0];
       result.Password = result.Password.replace(/^\$2y(.+)$/i, '\$2a$1');
-      if(bcrypt.compareSync(userLogin.password, result.Password)) {
+      if(bcrypt.compareSync(userLogin.password, result.Password) && result.Active) {
         delete result.Password;
         callback(null, result);
       } else {

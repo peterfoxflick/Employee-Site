@@ -7,7 +7,7 @@
 
 let express = require('express');
 let router = express.Router();
-let sess;
+
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -20,43 +20,72 @@ router.get('/', (req, res) => {
 
 // GET issue routing page
 router.get('/issuerouting', (req, res) => {
-  res.render('staticPages/issuerouting');
+  let sess = req.session;
+  res.render('staticPages/issuerouting', {
+    user: sess.user
+  });
 });
 
 // GET announce page
 router.get('/announce', (req, res) => {
-  res.render('staticPages/announce');
+  let sess = req.session;
+  res.render('staticPages/announce', {
+    user: sess.user
+  });
 });
 
 // GET starting weekly log
 router.get('/startlog', (req, res) => {
-  res.render('staticPages/startlog');
+  let sess = req.session;
+  res.render('staticPages/startlog', {
+    user: sess.user
+  });
 });
 
 // GET end of week log
 router.get('/endlog', (req, res) => {
-  res.render('staticPages/endlog');
+  let sess = req.session;
+  res.render('staticPages/endlog', {
+    user: sess.user
+  });
 });
 
 // GET kudos page
 router.get('/kudos', (req, res) => {
-  res.render('staticPages/kudos')
+  let sess = req.session;
+  res.render('staticPages/kudos', {
+    user: sess.user
+  });
 });
 
 // GET tutorial request form
 router.get('/tutorialrequest', (req, res) => {
-  res.render('staticPages/tutorialrequest');
+  let sess = req.session;
+  res.render('staticPages/tutorialrequest', {
+    user: sess.user
+  }
+)
 });
 
 //GET login page
 router.get('/login', (req, res) => {
-  res.render('login');
+  if(req.session.user) {
+    res.redirect('/');
+    res.end();
+  }
+    res.render('login');
 });
 
 // POST login details
 router.post('/login', (req, res) => {
-  //grab session infor
-  sess = req.session;
+
+  if(req.session.user) {
+    res.send("Error: You are already logged in");
+    res.end();
+  }
+
+  //grab session info
+  let sess = req.session;
   // gather posted data
   let loginInfo = {
     username : req.sanitize(req.body.username),
@@ -71,12 +100,21 @@ router.post('/login', (req, res) => {
           err: 1
         });
     } else {
+      // set user session variable
       sess.user = result;
       res.json({
         err: 0
       })
     }
   });
+});
+
+
+//GET logout
+router.get('/logout', (req, res) => {
+  // destroy session, return login page
+  req.session.destroy();
+  res.render('/login');
 });
 
 module.exports = router;

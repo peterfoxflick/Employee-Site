@@ -9,6 +9,8 @@ let expressSanitizer = require('express-sanitizer');
 let index = require('./routes/index');
 let session = require('express-session');
 let loginValidation = require('./modules/login/loginValidation');
+let empTools = require('./routes/employeeTools');
+let api = require('./routes/api');
 
 let app = express();
 
@@ -40,9 +42,8 @@ app.use(session(
 
 app.use('/', index);
 app.use(loginValidation);
-app.get('/test/test', (req, res, next) => {
-  res.send('worked!');
-});
+app.use('/empTools', empTools);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

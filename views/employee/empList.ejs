@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+    <title>FTC Employees | Employee List</title>
+</head>
+<body>
+    <% include ../partials/nav.ejs %>
+    <div class="container">
+        <h1>Employee List</h1>
+        <div class="row">
+            <!--searches the table by using a javascript function-->
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                <input id="search" class="form-control" onkeyup="tableSearch('search','empTable')" placeholder="Search for employee">
+            </div>
+        </div>
+
+        <div class="row table-responsive">
+            <table class="table table-responsive" id="empTable">
+                <thead>
+                <tr class="header">
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Team</th>
+                    <th>Assignment</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--This is filled by data provided by the database-->
+                    <%  for(var i = 0; i < emps.length; i++) {  %>
+                        <tr>
+                          <td><%= emps[i].Full_Name %></td>
+                          <td><%= emps[i].Phone %></td>
+                          <td><%= emps[i].Email %></td>
+                          <td><%= emps[i].Team %></td>
+                          <td><%= emps[i].Assignment %></td>
+                        </tr>
+                    <%  } %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+<script src="/javascripts/tableSearch.js" type="text/javascript" rel="script"></script>
+</body>
+</html>
