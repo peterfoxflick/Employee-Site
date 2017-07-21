@@ -67,4 +67,42 @@ router.get('/getRatings', (req, res)=> {
   });
 });
 
+router.post('/updateUser', (req, res)=>{
+  let sess = req.session;
+  let userInfo = {
+    fname: req.sanitize(req.body.fname),
+    lname: req.sanitize(req.body.lname),
+    username: req.sanitize(req.body.username),
+    email: req.sanitize(req.body.email),
+    phone: req.sanitize(req.body.phone),
+    id: sess.user.Id
+  };
+
+  let updateUser = require('../modules/user/updateUser');
+  updateUser(userInfo, (err, result) => {
+    if(err) {
+      //TODO add more response codes
+      switch(err.code) {
+        case 'ER_DUP_ENTRY':
+          res.status(500).json({
+            message: "Username already exists"
+          });
+          break;
+      }
+    } else {
+      let getUser = require('../modules/user/getUser');
+      getUser(sess.user.Id, (err, user) =>{
+        if(err) {
+          console.log(err);
+        } else {
+          sess.user = user[0];
+          res.json({
+            message: 'Success! User updated'
+          });
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;

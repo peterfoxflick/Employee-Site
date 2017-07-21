@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "userInfo.css",
+	"sources": [
+		"userInfo.sass"
+	],
+	"mappings": "AAEA,AAAA,QAAQ,CAAC;EACP,cAAc,EAAE,GAAI,GAAG;;AAEzB,AAAA,cAAc,CAAC;EACb,MAAM,EAAE,GAAG,CAAC,KAAK,CANZ,OAAO,GAMc",
+	"names": []
+}

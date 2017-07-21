@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#"><img alt="FTC logo" src="/images/FTC-Logo.svg"/></a>
+                <a href="/"><img alt="FTC logo" src="/images/FTC-Logo.svg"/></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -50,7 +50,7 @@
                 </ul>
       <% if (typeof user == 'object' && user) { %>
         <ul class='nav navbar-nav navbar-right'>
-           <li><a href='gurus/personalInfo.php'>Welcome <%= user.First_Name %></a></li>
+           <li><a href='/userTools/userInfo'>Welcome <%= user.First_Name %></a></li>
            <li><a href='/logout'><span class='glyphicon glyphicon-log-out'></span>Logout</a></li></ul>
         <%} else { %>
                 <ul class='nav navbar-nav navbar-right'>

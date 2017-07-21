@@ -12,38 +12,46 @@
             </div>
         </div>
         <br><br>
-        <div class="row">
-            <div class="col-md-5">
-                <select id="catSelect" class="form-control" onchange="upAppList(this.value)">
-                    <option>Select a Category</option>
-                    <% for(var i = 0; i < cats.length; i++) { %>
-                        <option value="<%= cats[i].CatId %>"><%= cats[i].Category %></option>
-                    <% } %>
-                </select>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="catSelect">Category</label>
+                        <select id="catSelect" class="form-control" onchange="upAppList(this.value)">
+                            <option>Select a Category</option>
+                            <% for(var i = 0; i < cats.length; i++) { %>
+                            <option value="<%= cats[i].CatId %>"><%= cats[i].Category %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+                        <label for="appSelect">Application</label>
+                        <select id="appSelect" class="form-control" onchange="upRatingsTable(this.value)">
+                            <option>Select an Application</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-5">
-                <select id="appSelect" class="form-control" onchange="upRatingsTable(this.value)">
-                    <option>Select an Application</option>
-                </select>
+            <div class="panel-body">
+                <div class="row">
+                    <table class="table table-responsive">
+                        <thead>
+                        <tr>
+                            <th class="col-md-3">Name</th>
+                            <th class="col-md-3">Application</th>
+                            <th class="col-md-3">Rating</th>
+                            <th class="col-md-3">Certified</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        <!--Filled when an application is selected from the menu-->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-                        <th class="col-md-3">Name</th>
-                        <th class="col-md-3">Application</th>
-                        <th class="col-md-3">Rating</th>
-                        <th class="col-md-3">Certified</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                <!--Filled when an application is selected from the menu-->
-                </tbody>
-            </table>
         </div>
     </div>
-    <script src="/javascripts/gurusAjax.js"></script>
+    <script src="/javascripts/gurus.js"></script>
     </body>
     </html>

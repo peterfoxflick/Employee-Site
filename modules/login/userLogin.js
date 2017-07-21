@@ -14,7 +14,7 @@ const bcrypt = require('bcrypt-nodejs');
  */
 function userLogin(userLogin, callback) {
 
-  pool.query(SQL`SELECT * FROM employee_info WHERE username = ${ userLogin.username };`, (err, result)=>{
+  pool.query(SQL`SELECT e.*,t.Team FROM employee_info AS e INNER JOIN teams AS t ON t.TeamId = e.TeamId WHERE e.Username = ${ userLogin.username };`, (err, result)=>{
     if(err) {
       console.log(err);
       callback(err);

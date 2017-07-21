@@ -114,7 +114,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   // destroy session, return login page
   req.session.destroy();
-  res.render('/login');
+  res.render('login');
 });
 
 module.exports = router;

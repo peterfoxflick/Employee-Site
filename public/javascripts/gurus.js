@@ -39,13 +39,13 @@ function upRatingsTable(app) {
 function buildTableRow(item) {
   // build row data in a visually understandable manner
   var row = '<tr>';
-  row += '<td><strong>' + item.Full_Name+ '</strong></td>';
-  row += '<td>' + item.Application + '</td>';
-  row += '<td>' + item.Rating + '</td>';
+  row += '<td class="col-md-3"><strong>' + item.Full_Name+ '</strong></td>';
+  row += '<td class="col-md-3">' + item.Application + '</td>';
+  row += '<td class="col-md-3">' + item.Rating + '</td>';
   if(item.Certified) {
-    row += '<td><span class="glyphicon glyphicon-ok"></span></td>';
+    row += '<td class="col-md-3"><span class="glyphicon glyphicon-ok"></span></td>';
   } else {
-    row += '<td><span class="glyphicon glyphicon-remove"></span></td>';
+    row += '<td class="col-md-3"><span class="glyphicon glyphicon-remove"></span></td>';
   }
   row += '</tr>';
   return row;
