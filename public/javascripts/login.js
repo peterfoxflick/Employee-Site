@@ -3,7 +3,12 @@
  */
 
 $(document).ready(function() {
-   $('#loginBtn').click(function() {
+
+  /**
+   * Sets a listener for the login button to
+   * post the data to the server
+   */
+  $('#loginBtn').click(function() {
       var loginInfo = new Object();
       loginInfo.username = $('#loginUsername').val();
       loginInfo.password = $('#loginPassword').val();

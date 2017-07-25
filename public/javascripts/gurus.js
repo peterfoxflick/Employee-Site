@@ -36,6 +36,15 @@ function upRatingsTable(app) {
   })
 }
 
+/**
+ * Builds a table row
+ * @param item - Object containing:
+ *      - Full_Name - employee name
+ *      - Application - app name
+ *      - Rating - employee rating
+ *      - Certified - whether employee is certified
+ * @returns {string} - a row to be inserted.
+ */
 function buildTableRow(item) {
   // build row data in a visually understandable manner
   var row = '<tr>';

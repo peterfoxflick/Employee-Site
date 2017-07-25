@@ -4,7 +4,8 @@
 <head>
     <% include ../partials/head.ejs %>
     <title>FTC Employees | Issue Routing</title>
-    <link href="stylesheets/issue-routing.css" rel="stylesheet"  />
+    <link href="/stylesheets/issue-routing.css" rel="stylesheet"  />
+    <script src="/javascripts/tableSearch.js"></script>
 </head>
 
 <body>
@@ -99,8 +100,11 @@
                 <section class="whiteboard">
                     <h1 class="text-center">Who To Call</h1>
                     <p class="text-center">Below is a list of the extensions to help you transfer to the right department to help your issue.</p>
-
-                    <table class="table table-striped">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                        <input id="search" class="form-control" onkeyup="tableSearch('search','extTable')" placeholder="Search for department">
+                    </div>
+                    <table class="table table-striped" id="extTable">
                         <thead>
                         <tr>
                             <th>Issue</th>

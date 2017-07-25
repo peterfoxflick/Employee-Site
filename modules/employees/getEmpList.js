@@ -1,6 +1,10 @@
 const pool = require('../dbconnect');
 const SQL = require('sql-template-strings');
 
+/**
+ * Generates a list of active employees
+ * @param callback
+ */
 function getEmpList(callback) {
   pool.query(SQL`SELECT employee_info.Full_Name, employee_info.Phone, employee_info.Assignment, employee_info.Email, teams.Team 
                  FROM employee_info 

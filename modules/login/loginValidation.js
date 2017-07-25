@@ -1,5 +1,7 @@
 /**
  * Created by Mando0975 on 7/11/2017.
+ *
+ * Middleware for verifying the user is logged in
  */
 
 function loginValidation(req, res, next) {

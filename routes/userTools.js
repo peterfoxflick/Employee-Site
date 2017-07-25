@@ -2,17 +2,88 @@
  * Created by Mando0975 on 7/6/2017.
  *
  * This router handles all requests regarding personal user tools
- *
+ * This includes updating user information and passwords
  *
  */
 
 let express = require('express');
 let router = express.Router();
 
+/* GET userInfo page */
 router.get('/userInfo', (req, res) => {
   let sess = req.session;
   res.render('user/userInfo', {
     user: sess.user
+  });
+});
+
+/**
+ * Updates the user's name, username, email and phone
+ * based on data submitted through a form.
+ */
+router.post('/updateUser', (req, res)=>{
+  let sess = req.session;
+  let userInfo = {
+    fname: req.sanitize(req.body.fname),
+    lname: req.sanitize(req.body.lname),
+    username: req.sanitize(req.body.username),
+    email: req.sanitize(req.body.email),
+    phone: req.sanitize(req.body.phone),
+    id: sess.user.Id
+  };
+
+  let updateUser = require('../modules/user/updateUser');
+  updateUser(userInfo, (err, result) => {
+    if(err) {
+      //TODO add more response codes
+      switch(err.code) {
+        // ensure that the username is unique
+        case 'ER_DUP_ENTRY':
+          res.status(500).json({
+            message: "Username already exists"
+          });
+          break;
+      }
+    } else {
+      let getUser = require('../modules/user/getUser');
+      getUser(sess.user.Id, (err, user) =>{
+        if(err) {
+          console.log(err);
+        } else {
+          // update the session variable
+          sess.user = user[0];
+          res.json({
+            message: 'User updated'
+          });
+        }
+      });
+    }
+  });
+});
+
+
+/**
+ * Updates user password
+ */
+router.post('/updatePwd', (req, res) => {
+  let sess = req.session;
+  let changePwd = require('../modules/user/changePwd');
+  let userInfo = {
+    userId: sess.user.Id,
+    pwd: req.sanitize(req.body.pwd),
+    newPwd: req.sanitize(req.body.newPwd),
+    confirmPwd: req.sanitize(req.body.confirmPwd),
+  };
+  changePwd(userInfo, (err) => {
+    if(err) {
+      res.status(500).json({
+        message: err.message
+      })
+    } else {
+      res.json({
+        message: 'Password updated'
+      });
+    }
   });
 });
 

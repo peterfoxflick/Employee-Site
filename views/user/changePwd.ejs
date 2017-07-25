@@ -1,0 +1,35 @@
+<div id="changePwd" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form class='form-signin' id="updatePwd">
+                    <h2 class="form-signin-heading">Update Password</h2>
+                    <div class="input-group">
+                        <label for="pwd">Current Password</label>
+                        <input type="password" name="pwd" id='pwd' placeholder="Password" class="form-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newPwd">New Password</label>
+                        <input type="password" name="newPwd" id="newPwd" class="form-control" placeholder="New Password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmPwd">Confirm Password</label>
+                        <input type="password" name="confirmPwd" id="confirmPwd" class="form-control" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="alert alert-danger" hidden id="warning"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="updatePwd()">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
