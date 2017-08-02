@@ -14,4 +14,10 @@ table {
   height: 120px;
   border-collapse: collapse; }
 
+.alert-info {
+  color: #EAEEF2;
+  background-color: #855B69; }
+  .alert-info a {
+    color: inherit; }
+
 /*# sourceMappingURL=issue-routing.css.map */

@@ -1,5 +1,5 @@
 <nav>
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -33,14 +33,13 @@
                         <li><a href="/empTools/gurus">Gurus</a></li>
                     </ul>
                     </li>
-                    }
                     <% if (user.Admin) { %>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Admin Tools<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="gurus/admin/editEmps.php">Edit Employees</a></li>
+                            <li><a href="/adminTools/manageEmps">Manage Employees</a></li>
                             <li><a href="gurus/admin/editGurus.php">Edit Gurus</a></li>
                         </ul>
                     </li>

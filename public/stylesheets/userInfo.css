@@ -2,6 +2,8 @@
   padding-bottom: 15%; }
 
 .panel-primary {
-  border: 1px solid #039BE5; }
+  border: 1px solid #855B69; }
+  .panel-primary .panel-heading {
+    border: inherit; }
 
 /*# sourceMappingURL=userInfo.css.map */

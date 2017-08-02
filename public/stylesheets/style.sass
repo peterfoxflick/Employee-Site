@@ -1,51 +1,51 @@
-$blue: #039BE5
+$header: #855B69
+$tablechild: #b8b3b9
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:400,500,700')
 
 body::-webkit-scrollbar
   display: none
 
-
-
 h1, h2, h3, h4
   font-family: 'Open Sans Light', sans-serif
 
-
 p, a
-  font-family: 'Open Sans', sans-serif
-
+  font-family: 'Roboto', sans-serif
 
 body
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Roboto', sans-serif
   margin-bottom: 1%
-
-
+  background-color: #8D9CA8
+  .container
+    background-color: #EAEEF2
+    padding: 20px
+  .navbar-default
+    margin-bottom: 0
 
 .navbar
   border-radius: 0
-
-
-.navbar img
-  width: 300px
+  img
+    width: 300px
 
 
 .navbar-right
   float: right
 
 
+@media ( min-width: 200px)
+  .nav.navbar-nav.pull-right
+    float: left !important
 
-//@media ( min-width:200px )
-//  .nav.navbar-nav.pull-right
-//    float: left !important
+
 
 
 .btn
   border-radius: 50px
 
-.btn-primary
-  background-color: $blue
-
 
 tr:nth-child(even)
-  background-color: #bbc1cc
+  background-color: $tablechild
 
 h1
   text-align: center
@@ -62,4 +62,34 @@ h1
 .panel-primary
   border: none
   .panel-heading
-    background-color: $blue
+    background-color: $header
+
+$bgcolor: #2980B9
+$color: #EAEEF2
+.btn-custom
+  color: $color
+  background-color: $bgcolor
+  border-color: $bgcolor
+  &:hover, &:focus, &:active, &.active
+    background-color: #3E4761
+    border-color: #3E4761
+    color: $color
+
+  &.disabled
+    &:hover, &:focus, &:active, &.active
+      background-color: $bgcolor
+      border-color: $bgcolor
+      color: $color
+
+  &[disabled]
+    &:hover, &:focus, &:active, &.active
+      background-color: $bgcolor
+      border-color: $bgcolor
+
+
+fieldset[disabled] .btn-custom
+  &:hover, &:focus, &:active, &.active
+    background-color: $bgcolor
+    border-color: $bgcolor
+
+
