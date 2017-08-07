@@ -86,8 +86,9 @@ router.post('/addUser', (req, res) => {
     username: req.sanitize(req.body.username),
     password: req.sanitize(req.body.pwd)
   };
+
   let addUser = require('../modules/admin/addUser');
-  addUser(userInfo, (err, result)=> {
+  addUser(userInfo, (err, insertId)=> {
     if(err) {
       res.status(500).json({
         message: 'There was an error adding user. Please check your inputs and try again'
@@ -95,10 +96,45 @@ router.post('/addUser', (req, res) => {
     } else {
       res.json({
         message: 'User added succesfully'
-      })
+      });
+      addUserToRatings(insertId);
     }
   })
 
 });
+
+
+router.get('/editGurus', (req, res) => {
+  let getCategories = require('../modules/common/getCategories');
+  getCategories((err, cats)=> {
+    res.render('admin/editGurus', {
+      user: req.session.user,
+      cats: cats
+    })
+  });
+
+});
+
+/**
+ * Gets a list of all applications, and adds a row for each app in the gururatings for the inserted user
+ * @param insertId - The id of the inserted user
+ */
+function addUserToRatings(insertId) {
+  let getApps = require('../modules/common/getApps');
+  getApps((err1, apps)=> {
+    if(err1) {
+      console.log(err1)
+    } else {
+      let addUserRatings = require('../modules/admin/addUserRatings');
+      for(let i = 0; i < apps.length; i++) {
+        addUserRatings(insertId, apps[i].AppId, (err2) => {
+          if(err2) {
+            console.log(err2);
+          }
+        })
+      }
+    }
+  });
+}
 
 module.exports = router;

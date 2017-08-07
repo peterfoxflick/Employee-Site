@@ -11,7 +11,7 @@ function addUser(userInfo, callback) {
         if(err) {
           callback(err);
         } else {
-          callback(null);
+          callback(null, result.insertId);
         }
   });
 }
