@@ -1,3 +1,7 @@
+@import "partials/palette"
+@import "partials/buttons"
+@import "partials/nav"
+
 $header: #855B69
 $tablechild: #b8b3b9
 
@@ -16,9 +20,9 @@ p, a
 body
   font-family: 'Roboto', sans-serif
   margin-bottom: 1%
-  background-color: #8D9CA8
+  background-color: whitesmoke
   .container
-    background-color: #EAEEF2
+    background-color: whitesmoke
     padding: 20px
   .navbar-default
     margin-bottom: 0
@@ -40,12 +44,11 @@ body
 
 
 
-.btn
-  border-radius: 50px
+
 
 
 tr:nth-child(even)
-  background-color: $tablechild
+  background-color: $divider-color
 
 h1
   text-align: center
@@ -62,34 +65,16 @@ h1
 .panel-primary
   border: none
   .panel-heading
-    background-color: $header
+    background-color: $primary-color
 
-$bgcolor: #2980B9
-$color: #EAEEF2
-.btn-custom
-  color: $color
-  background-color: $bgcolor
-  border-color: $bgcolor
-  &:hover, &:focus, &:active, &.active
-    background-color: #3E4761
-    border-color: #3E4761
-    color: $color
-
-  &.disabled
-    &:hover, &:focus, &:active, &.active
-      background-color: $bgcolor
-      border-color: $bgcolor
-      color: $color
-
-  &[disabled]
-    &:hover, &:focus, &:active, &.active
-      background-color: $bgcolor
-      border-color: $bgcolor
+.panel-accent
+  border: none
+  .panel-heading
+    background-color: $primary-color
+    color: $primary-color-text
 
 
-fieldset[disabled] .btn-custom
-  &:hover, &:focus, &:active, &.active
-    background-color: $bgcolor
-    border-color: $bgcolor
+
+
 
 

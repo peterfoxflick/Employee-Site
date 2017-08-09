@@ -15,10 +15,18 @@ $(document).ready(function() {
       $.post('/login', loginInfo, function(res, status) {
           //noinspection EqualityComparisonWithCoercionJS
         if(!res.err) {
-            window.location.replace("/");
+            window.location.reload();
         } else {
            $('#warning').show();
         }
       })
    });
+
+
+
+    $('#loginPassword').keyup(function(event){
+      if(event.keyCode == 13) {
+        $('#loginBtn').click();
+      }
+    });
 });

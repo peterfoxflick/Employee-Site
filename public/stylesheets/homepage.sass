@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans')
+@import partials/palette
 
 body
-  background-color: #EAEEF2
 
 
 .banner
@@ -26,7 +26,7 @@ body
 
 .flex-parent
   display: flex
-  flex-direction: row
+  flex-direction: column
   justify-content: center
   flex-flow: row wrap
 
@@ -53,23 +53,49 @@ a
   .glyphicon,p
     color: #1A251E
 
+#dropdownCards
+  .tab-content
+    border: solid 2px $primary-color
+    background-color: white
+  margin-top: 1%
+  .flex-parent
+    a
+      margin: 50px 15px
+
 .card
-  border-radius: 15px
-  background-color: #2B3546
-  padding: 0
-  span, p
-    color: #EAEEF2
+  display: flex
+  flex-direction: column
+  text-align: center
+  align-content: center
   button
-    margin-top: 1%
-    font-size: 2em
-    border: none
-    border-radius: 0
-    background-color: #EAEEF2
+    height: 125px
+    width: 125px
+    margin: auto
+    color: $primary-color-text
+  .glyphicon
+    padding-bottom: 10px
+    font-size: 3em
+    color: $primary-color-text
 
-@media screen and (max-width: 1280px)
-  .card
-    height: 450px
 
-@media screen and (max-width: 700px)
-  .card
-    height: 330px
+.nav-pills
+  li
+    margin-left: 0 !important
+    a
+      border: solid 1px $primary-color
+      border-bottom: none
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+    a:hover
+      background-color: $primary-color-dark
+      color: $primary-color-text
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+  .active
+    a
+      background-color: $primary-color !important
+
+@media screen and (min-width: 1200px )
+  .nav-pills
+    li
+      width: 350px

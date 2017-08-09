@@ -1,0 +1,48 @@
+.btn-primary
+  color: $primary-color-text
+  background-color: $primary-color
+  border-color: $primary-color
+  &:hover, &:focus, &:active, &.active
+    background-color: $primary-color-dark
+    border-color: $primary-color-dark
+    color: $primary-color-text
+  &.disabled
+    &:hover, &:focus, &:active, &.active
+      background-color: $primary-color-dark
+      border-color: $primary-color-dark
+      color: $primary-color-text
+  &[disabled]
+    &:hover, &:focus, &:active, &.active
+      background-color: $primary-color-dark
+      border-color: $primary-color-dark
+
+
+fieldset[disabled] .btn-primary
+  &:hover, &:focus, &:active, &.active
+    background-color: #9A264D
+    border-color: #9A264D
+
+
+.btn-accent
+  color: $primary-color-text
+  background-color: $accent-color
+  border-color: $accent-color
+  &:hover, &:focus, &:active, &.active
+    background-color: #D43A6A
+    border-color: #D43A6A
+    color: $primary-color-text
+  &.disabled
+    &:hover, &:focus, &:active, &.active
+      background-color: #9A264D
+      border-color: #9A264D
+      color: $primary-color-text
+  &[disabled]
+    &:hover, &:focus, &:active, &.active
+      background-color: #9A264D
+      border-color: #9A264D
+
+
+fieldset[disabled] .btn-accent
+  &:hover, &:focus, &:active, &.active
+    background-color: #9A264D
+    border-color: #9A264D

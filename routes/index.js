@@ -67,15 +67,6 @@ router.get('/tutorialrequest', (req, res) => {
 )
 });
 
-//GET login page
-router.get('/login', (req, res) => {
-  if(req.session.user) {
-    res.redirect('/');
-    res.end();
-  }
-    res.render('login');
-});
-
 // POST login details
 router.post('/login', (req, res) => {
 
@@ -114,7 +105,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   // destroy session, return login page
   req.session.destroy();
-  res.render('login');
+  res.render('index');
 });
 
 module.exports = router;

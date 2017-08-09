@@ -47,16 +47,22 @@
         } %>
 
                 </ul>
-      <% if (typeof user == 'object' && user) { %>
+      <% if (typeof user == 'object' && user) { var logged = true; %>
         <ul class='nav navbar-nav navbar-right'>
            <li><a href='/userTools/userInfo'>Welcome <%= user.First_Name %></a></li>
            <li><a href='/logout'><span class='glyphicon glyphicon-log-out'></span>Logout</a></li></ul>
-        <%} else { %>
+        <%} else { var logged = false; %>
                 <ul class='nav navbar-nav navbar-right'>
                 <li><a>Welcome Guest</a></li>
-                <li><a href='/login'><span class='glyphicon glyphicon-log-in'></span>Login</a></li></ul>
+                <li><a href='#' data-toggle="modal" data-target="#loginModal"><span class='glyphicon glyphicon-log-in'></span>Login</a></li></ul>
                 <% } %>
             </div>
         </div>
     </div>
 </nav>
+
+<% if(!logged) { %>
+<% include loginModal.ejs%>
+<% } %>
+
+
