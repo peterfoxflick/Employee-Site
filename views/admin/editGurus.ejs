@@ -14,29 +14,29 @@
             <div class="col-md-6">
                 <h3>Add Category</h3>
                 <div class="form-group form-inline">
-                    <input class="form-control" name="newCat" placeholder="Category Name">
-                    <button class="btn btn-custom">Add Category</button>
+                    <input class="form-control" id="newCat" name="newCat" placeholder="Category Name">
+                    <button onclick="addCategory()" class="btn btn-accent">Add Category</button>
                 </div>
 
             </div>
             <div class="col-md-6">
                 <div class="form-group form-inline">
                     <h3>Add App</h3>
-                    <select id="catSelect" class="form-control">
+                    <select id="catSelect" class="form-control catSelect">
                         <option>Select a Category</option>
                         <% for(var i = 0; i < cats.length; i++) { %>
                         <option value="<%= cats[i].CatId %>"><%= cats[i].Category %></option>
                         <% } %>
                     </select>
-                    <input class="form-control" name="newApp" placeholder="Application Name">
-                    <button class="btn btn-custom">Add Application</button>
+                    <input class="form-control" name="newApp" id='newApp' placeholder="Application Name">
+                    <button class="btn btn-accent" onclick="addApp()">Add Application</button>
                 </div>
             </div>
         </div>
     </section>
     <section id="edit">
         <div class="row">
-            <div class="col-md-6 form-group">
+            <div id="cats" class="col-md-6 form-group">
                 <h3>Edit Categories</h3>
                 <% for(var i = 0; i < cats.length; i++) { %>
                 <div class="input-group">
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-6 form-group">
                 <h3>Edit Applications</h3>
-                <select id="catSelect" class="form-control" onchange="upAppList(this.value)">
+                <select id="catSelectApps" class="form-control" class="catSelect" onchange="upAppList(this.value)">
                     <option>Select a Category</option>
                     <% for(var i = 0; i < cats.length; i++) { %>
                     <option value="<%= cats[i].CatId %>"><%= cats[i].Category %></option>

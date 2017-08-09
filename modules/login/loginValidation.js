@@ -9,7 +9,7 @@ function loginValidation(req, res, next) {
   if(sess.user) {
     return next();
   }
-  res.redirect('/login');
+  res.redirect('/');
 }
 
 module.exports = loginValidation;

@@ -51,10 +51,16 @@
         <ul class='nav navbar-nav navbar-right'>
            <li><a href='/userTools/userInfo'>Welcome <%= user.First_Name %></a></li>
            <li><a href='/logout'><span class='glyphicon glyphicon-log-out'></span>Logout</a></li></ul>
+
         <%} else { var logged = false; %>
                 <ul class='nav navbar-nav navbar-right'>
                 <li><a>Welcome Guest</a></li>
-                <li><a href='#' data-toggle="modal" data-target="#loginModal"><span class='glyphicon glyphicon-log-in'></span>Login</a></li></ul>
+                <li><a href='#' data-toggle="modal" data-target="#loginModal" id="loginBtn"><span class='glyphicon glyphicon-log-in'></span>Login</a></li></ul>
+                <script>
+                  $(document).ready(function(){
+
+                  });
+                </script>
                 <% } %>
             </div>
         </div>

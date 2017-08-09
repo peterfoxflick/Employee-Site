@@ -112,7 +112,45 @@ router.get('/editGurus', (req, res) => {
       cats: cats
     })
   });
+});
 
+router.post('/addCategory', (req, res)=> {
+  let cat = req.sanitize(req.body.cat);
+  let addCategory = require('../modules/admin/addCategory');
+  addCategory(cat, (err, catId)=> {
+    if(err) {
+      res.status(500).json({
+        message: "There was a problem with the server"
+      });
+    } else {
+      res.json({
+        message: 'Category added',
+        catId: catId,
+        cat: cat
+      });
+    }
+  });
+
+});
+
+router.post('/addApplication', (req, res)=> {
+  let addApplication = require('../modules/admin/addApplication');
+  let app = req.sanitize(req.body.app);
+  let cat = req.sanitize(req.body.cat);
+  addApplication(cat, app, (err, appId)=> {
+    if(err) {
+      res.status(500).json({
+        message: "There was a problem with the server"
+      })
+    } else {
+      res.json({
+        message: "Application added",
+        app: app,
+        appId: appId,
+        cat: cat
+      });
+    }
+  })
 });
 
 /**

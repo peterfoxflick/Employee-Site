@@ -58,6 +58,7 @@ function addEmp() {
       message: data.message
     }, {
       type: 'success'
+    });
     }).fail(function (data) {
       $.notify({
         title: '<strong>Warning!</strong>',
@@ -65,7 +66,6 @@ function addEmp() {
       }, {
         type: 'danger'
       });
-    });
   });
   setTimeout(function(){
     window.location.reload();
