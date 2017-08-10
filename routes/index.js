@@ -12,7 +12,6 @@ let router = express.Router();
 /* GET home page. */
 router.get('/', (req, res) => {
   let sess = req.session;
-  console.log(sess.user);
   res.render('index', {
     user: sess.user
   });
@@ -105,7 +104,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   // destroy session, return login page
   req.session.destroy();
-  res.render('index');
+  res.redirect('/');
 });
 
 module.exports = router;

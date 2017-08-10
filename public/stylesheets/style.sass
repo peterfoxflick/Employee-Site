@@ -2,6 +2,7 @@
 @import "partials/buttons"
 @import "partials/nav"
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:400,500,700')
+@import 'partials/animate.css'
 
 body::-webkit-scrollbar
   display: none
@@ -18,9 +19,16 @@ body
 
 h1, h2, h3, h4
   font-family: 'Open Sans Light', sans-serif
-
+  border-bottom: solid 1px #d3d3d3
+  padding-bottom: 3%
+.modal-title
+  border: none
 p, a
   font-family: 'Roboto', sans-serif
+
+.modal-body
+  p
+    font-size: 1.5em
 
 .navbar
   border-radius: 0
@@ -65,7 +73,7 @@ h1
 .panel-accent
   border: none
   .panel-heading
-    background-color: $primary-color
+    background-color: $accent-color
     color: $primary-color-text
 
 

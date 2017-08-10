@@ -17,16 +17,20 @@ function updateUser() {
   $.post('/userTools/updateUser',$('#userInfo').serialize(), function(data, status) {
       $.notify({
         title: '<strong>Success!</strong>',
-        message: data.message
+        message: data.message,
+        icon: '/images/kip.gif'
       },{
+        icon_type: 'image',
         type: 'success'
       });
   }).fail(function(data){
     $.notify({
       title: '<strong>Warning!</strong>',
+      icon: '/images/aaron.gif',
       message: data.responseJSON.message + '. Information not updated'
     }, {
-      type: 'danger'
+      type: 'danger',
+      icon_type: 'image'
     });
   });
 }
@@ -39,9 +43,11 @@ function updatePwd() {
   $.post('/userTools/updatePwd', $('#updatePwd').serialize(), function(data, status) {
     $.notify({
       title: '<strong>Success!</strong>',
-      message: data.message
-    }, {
-      type: 'success'
+      message: data.message,
+      icon: '/images/kip.gif'
+    },{
+      icon_type: 'image',
+      type: 'success',
     });
     $('#changePwd').modal('hide');
   }).fail(function(data) {

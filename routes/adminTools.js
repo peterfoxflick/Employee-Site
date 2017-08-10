@@ -153,6 +153,45 @@ router.post('/addApplication', (req, res)=> {
   })
 });
 
+router.post('/updateCat', (req, res)=> {
+  let updateCat = require('../modules/admin/updateCat');
+  let catInfo = {
+    cat: req.sanitize(req.body.cat),
+    catId: req.sanitize(req.body.catId)
+  };
+  updateCat(catInfo, (err)=> {
+    if(err) {
+      res.status(500).json({
+        message: "There was a problem with the server"
+      })
+    } else {
+      res.json({
+        message: "Category updated"
+      })
+    }
+  })
+});
+
+router.post('/updateApp', (req, res)=>{
+  let updateApp = require('../modules/admin/updateApp');
+  let appInfo = {
+    app: req.sanitize(req.body.app),
+    appId: req.sanitize(req.body.appId),
+    catId: req.sanitize(req.body.catId)
+  };
+  updateApp(appInfo, (err) => {
+    if(err) {
+      res.status(500).json({
+        message: "There was a problem with the server"
+      })
+    } else {
+      res.json({
+        message: "Application updated"
+      })
+    }
+  })
+});
+
 /**
  * Gets a list of all applications, and adds a row for each app in the gururatings for the inserted user
  * @param insertId - The id of the inserted user

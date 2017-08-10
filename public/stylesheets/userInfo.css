@@ -7,4 +7,8 @@
   .panel-primary .panel-heading {
     border: inherit; }
 
+h3 {
+  border: none;
+  padding: inherit; }
+
 /*# sourceMappingURL=userInfo.css.map */

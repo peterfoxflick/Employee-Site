@@ -13,6 +13,7 @@ let empTools = require('./routes/employeeTools');
 let api = require('./routes/api');
 let userTools = require('./routes/userTools');
 let adminTools = require('./routes/adminTools');
+let adminValidation = require('./modules/admin/adminValidation');
 
 let app = express();
 
@@ -47,6 +48,7 @@ app.use(loginValidation);
 app.use('/empTools', empTools);
 app.use('/api', api);
 app.use('/userTools', userTools);
+app.use(adminValidation);
 app.use('/adminTools', adminTools);
 
 // catch 404 and forward to error handler
