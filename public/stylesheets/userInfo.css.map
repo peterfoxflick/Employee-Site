@@ -2,9 +2,8 @@
 	"version": 3,
 	"file": "userInfo.css",
 	"sources": [
-		"userInfo.sass",
-		"partials/palette.sass"
+		"userInfo.sass"
 	],
-	"mappings": "ACAA,iFAAiF;ADEjF,AAAA,QAAQ,CAAC;EACP,cAAc,EAAE,GAAI,GAAG;;AAEzB,AAAA,cAAc,CAAC;EACb,MAAM,EAAE,GAAG,CAAC,KAAK,CCHH,OAAO,GDKE;EAHzB,AAEE,cAFY,CAEZ,cAAc,CAAC;IACb,MAAM,EAAE,OAAQ,GAAG;;AAEvB,AAAA,EAAE,CAAC;EACD,MAAM,EAAE,IAAK;EACb,OAAO,EAAE,OAAQ,GAAG",
+	"mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,cAAc,EAAE,GAAI,GAAG;;AAEzB,AAAA,EAAE,CAAC;EACD,MAAM,EAAE,IAAK;EACb,OAAO,EAAE,OAAQ,GAAG",
 	"names": []
 }

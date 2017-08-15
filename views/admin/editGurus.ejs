@@ -5,7 +5,7 @@
     <script src="/javascripts/adminGurus.js"></script>
     <link href="/stylesheets/adminGuruEdit.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="adminGuruEdit">
 <% include ../partials/nav.ejs %>
 
 <div class="container">
@@ -38,17 +38,21 @@
         <div class="row">
             <div id="cats" class="col-md-6 form-group">
                 <h3>Edit Categories</h3>
-                <% for(var i = 0; i < cats.length; i++) { %>
-                <div class="input-group">
+                <div id="catList">
+                    <% for(var i = 0; i < cats.length; i++) { %>
+                    <div class="input-group">
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-edit"></i>
                         </span>
-                    <input class="form-control" data-toggle="tooltip" title="Double Click to Edit"
-                           value="<%= cats[i].Category %>" id="<%= cats[i].CatId %>" readonly="true"
-                           ondblclick="this.readOnly=''; $(this).addClass('upcats')">
-                    <span class="input-group-addon" data-toggle="modal" data-target="#deleteCatModal" onclick="popCatDelModal(<%= cats[i].CatId %>, '<%= cats[i].Category%>')"><i class="glyphicon glyphicon-trash"></i></span>
+                        <input class="form-control" data-toggle="tooltip" title="Double Click to Edit"
+                               value="<%= cats[i].Category %>" id="<%= cats[i].CatId %>" readonly="true"
+                               ondblclick="this.readOnly=''; $(this).addClass('upcats')">
+                        <span class="input-group-addon" data-toggle="modal" data-target="#deleteCatModal"
+                              onclick="popCatDelModal(<%= cats[i].CatId %>, '<%= cats[i].Category %>')"><i
+                                    class="glyphicon glyphicon-trash"></i></span>
+                    </div>
+                    <% } %>
                 </div>
-                <% } %>
                 <br>
                 <button class="btn btn-accent" onclick="updateCats()">Save</button>
             </div>
@@ -80,14 +84,45 @@
                     <h4 class="modal-title">Delete Category</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete the <span id="catToDel"></span> category? This will also delete <strong>ALL</strong>
-                        applications and ratings listed in this category. <u class="text-danger">This cannot be undone</u></p>
+                    <p>Are you sure you want to delete the <span id="catToDel"></span> category? This will also delete
+                        <strong>ALL</strong>
+                        applications and ratings listed in this category. <br> <u class="text-danger">This cannot be
+                            undone</u></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="delCatBtn">Delete</button>
+                    <button type="button" class="btn btn-danger" id="delCatBtn" data-dismiss="modal" onclick="delCat()">
+                        Delete
+                    </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="deleteAppModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Application</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <span id="appToDel"></span> from the Gurus? This will also delete
+                        <strong>ALL</strong>
+                        ratings associated with this application <br><u class="text-danger">This cannot be
+                            undone</u></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="delAppBtn" data-dismiss="modal" onclick="delApp()">
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

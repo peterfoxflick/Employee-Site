@@ -1,0 +1,1 @@
+$(document).ready(function(){Cookies.get("shown")||$("#weekLog").modal("show"),$("#close").click(function(){Cookies.set("shown",!0,{expires:1})})});

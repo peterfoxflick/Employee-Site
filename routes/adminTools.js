@@ -192,6 +192,38 @@ router.post('/updateApp', (req, res)=>{
   })
 });
 
+router.post('/delCat', (req, res)=> {
+  let delCat = require('../modules/admin/delCat');
+  let cat = req.sanitize(req.body.catId);
+  delCat(cat, (err) => {
+    if(err) {
+      res.status(500).json({
+        message: "Problem deleting the category"
+      });
+    } else {
+      res.json({
+        message: "Category deleted"
+      });
+    }
+  });
+});
+
+router.post('/delApp', (req, res)=> {
+  let delApp = require('../modules/admin/delApp');
+  let app = req.sanitize(req.body.appId);
+  delApp(app, (err)=> {
+    if(err) {
+      res.status(500).json({
+        message: "Problem deleting the application"
+      });
+    } else {
+      res.json({
+        message: "Application deleted"
+      });
+    }
+  });
+});
+
 /**
  * Gets a list of all applications, and adds a row for each app in the gururatings for the inserted user
  * @param insertId - The id of the inserted user
@@ -213,5 +245,6 @@ function addUserToRatings(insertId) {
     }
   });
 }
+
 
 module.exports = router;

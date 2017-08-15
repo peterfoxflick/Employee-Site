@@ -26,7 +26,8 @@ function buildInputGroup(item) {
       '</span>' +
       '<input data-toggle="tooltip" title="Double Click to Edit" class="form-control editApp" value="'+ item.Application +
       '" id="' + item.AppId + 'app" data-id="' + item.AppId + '" readOnly="true" ondblclick="this.readOnly = null; $(this).addClass(\'upapp\')">' +
-      '<select class="form-control appCatSelect" id="' + selectId + '" onchange="$(\'#' + item.AppId + 'app\').addClass(\'upapp\')"></select></div>');
+      '<select class="form-control appCatSelect" id="' + selectId + '" onchange="$(\'#' + item.AppId + 'app\').addClass(\'upapp\')"></select>' +
+      '<span class="input-group-addon" onclick="popAppDelModal('+ item.AppId +',\''+ item.Application+'\')" data-toggle="modal" data-target="#deleteAppModal"><i class="glyphicon glyphicon-trash"></i></span></div>');
   $('#' + selectId).append(options);
   $('#' + selectId).val($('#catSelectApps').val())
 }
@@ -61,8 +62,11 @@ function appendCat(cat, catId) {
   var input =  '<div class="input-group">' +
       '<span class="input-group-addon" data-toggle="tooltip" title="Click to Edit" onclick="enableCatEdit(' + catId + ')"> ' +
       '<i class="glyphicon glyphicon-edit"></i></span>' +
-      '<input class="form-control" value="'+ cat +'" id="' + catId+ '" disabled> </div>'
-  $('#cats').append(input);
+      '<input class="form-control" value="'+ cat +'" id="' + catId+ '" disabled>' +
+      '<span class="input-group-addon" data-toggle="modal" data-target="#deleteCatModal" ' +
+      'onclick="popCatDelModal('+ catId + ','+ cat + ')"><i ' +
+      'class="glyphicon glyphicon-trash"></i></span></div>';
+  $('#catList').append(input);
 }
 
 function addApp() {
@@ -125,7 +129,8 @@ function updateApps(){
         message: value.value + ' was updated'
       }, {
         type: 'success'
-      })
+      });
+      upAppList($('#catSelectApps').val());
     }).fail(function(){
       $.notify({
         title:'<strong>Warning!</strong>',
@@ -139,12 +144,52 @@ function updateApps(){
 
 function popCatDelModal(catId, cat) {
   $('#catToDel').html(cat);
+  $('#delCatBtn').data("cat", catId);
+}
 
-  $('#delCatBtn').click(function() {
-    delCat(catId);
+function delCat() {
+  var catId = $('#delCatBtn').data('cat');
+  $.post('/adminTools/delCat', { catId: catId}, function(data, status) {
+    $.notify({
+      title:'<strong>Success!</strong>',
+      message: data.message
+    }, {
+      type: 'success'
+    });
+    setTimeout(function(){
+      window.location.reload()
+    }, 2000);
+  }).fail(function(data, status){
+    $.notify({
+      title:'<strong>Warning!</strong>',
+      message: data.responseJSON.message
+    }, {
+      type: 'danger'
+    });
   });
 }
 
-function delCat(catId) {
-  alert(catId);
+function popAppDelModal(appId, app) {
+  $('#appToDel').html(app);
+  $('#delAppBtn').data("app", appId);
+}
+
+function delApp(){
+  var app = $('#delAppBtn').data("app");
+  $.post('/adminTools/delApp', { appId: app}, function(data, status) {
+    $.notify({
+      title:'<strong>Success!</strong>',
+      message: data.message
+    }, {
+      type: 'success'
+    });
+    upAppList($('#catSelectApps').val());
+  }).fail(function(data, status){
+    $.notify({
+      title:'<strong>Warning!</strong>',
+      message: data.responseJSON.message
+    }, {
+      type: 'danger'
+    });
+  });
 }

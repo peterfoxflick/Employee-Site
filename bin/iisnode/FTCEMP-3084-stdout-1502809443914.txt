@@ -1,0 +1,8 @@
+[0mGET / [32m200 [0m38.690 ms - 12222[0m
+[0mGET /javascripts/js-cookie.js [32m200 [0m17.350 ms - 4496[0m
+[0mGET /javascripts/defaults.js [32m200 [0m25.868 ms - 193[0m
+[0mGET /javascripts/bootstrap-notify.min.js [32m200 [0m102.104 ms - 8122[0m
+[0mGET /javascripts/index.js [32m200 [0m1.826 ms - 346[0m
+[0mGET /stylesheets/style.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/homepage.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/login.css [0m- [0m- ms - -[0m
