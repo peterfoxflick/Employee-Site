@@ -1,3 +1,4 @@
 connectionString.js
 node_modules/
 .idea
+cache/
