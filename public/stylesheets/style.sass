@@ -53,17 +53,30 @@ h1
 .inline
   display: inline-block
 .panel-primary
-  border: none
+  border: solid 1px $primary-color
   .panel-heading
     background-color: $primary-color
+    h1,h2, h3,h4,h5
+      border: none
+      padding: 0
 
 .panel-accent
-  border: none
+  border: solid 1px $accent-color
   .panel-heading
     background-color: $accent-color
     color: $primary-color-text
+    h1,h2, h3,h4,h5
+      border: none
+      padding: 0
 
+.panel-no-border
+  border: none
 
+.jumbotron
+  background-color: $primary-color-dark
+  color: $primary-color-text
+  .container
+    background-color: inherit
 
 .login
   .form-signin
@@ -119,3 +132,10 @@ h1
 //  h3
 //    border: none
 //    padding: inherit
+
+.empCard
+  box-shadow: 3px 3px 8px #888888
+  h4, h3, h4
+    border: none
+  .panel-body
+    min-height: 200px

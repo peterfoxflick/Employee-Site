@@ -5,44 +5,44 @@
     <title>FTC Employees | Employee List</title>
 </head>
 <body>
-    <% include ../partials/nav.ejs %>
+<% include ../partials/nav.ejs %>
+<div class="jumbotron">
     <div class="container">
         <h1>Employee List</h1>
         <div class="row">
             <!--searches the table by using a javascript function-->
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
-                <input id="search" class="form-control" onkeyup="tableSearch('search','empTable')" placeholder="Search for employee">
+                <span class="input-group-addon" id="basic-addon1"><span
+                            class="glyphicon glyphicon-search"></span></span>
+                <input id="search" class="form-control" onkeyup="cardSearch('search','cards')"
+                       placeholder="Search by Name">
             </div>
         </div>
-
-        <div class="row table-responsive">
-            <table class="table table-responsive" id="empTable">
-                <thead>
-                <tr class="header">
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Team</th>
-                    <th>Assignment</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <!--This is filled by data provided by the database-->
-                    <%  for(var i = 0; i < emps.length; i++) {  %>
-                        <tr>
-                          <td><%= emps[i].Full_Name %></td>
-                          <td><%= emps[i].Phone %></td>
-                          <td><%= emps[i].Email %></td>
-                          <td><%= emps[i].Team %></td>
-                          <td><%= emps[i].Assignment %></td>
-                        </tr>
-                    <%  } %>
-                </tbody>
-            </table>
-        </div>
-
     </div>
+</div>
+<div class="container">
+    <section>
+        <ul id="cards" style="list-style: none">
+        <div class="row text-center">
+            <% for(var i = 0; i < emps.length; i++) { %>
+            <li><div class="col-sm-12 col-md-6 col-lg-4 animated fadeIn">
+                <div class="panel <% if(i % 2 == 0 ) {%>panel-accent<%} else {%> panel-primary <%}%> empCard">
+                    <div class="panel-heading">
+                        <span><h4><%= emps[i].Full_Name %></h4></span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <span class="glyphicon glyphicon-fire" style="font-size: 4em;"></span>
+                        <span><h5><% if(!emps[i].Phone){ %>Not Available<%}else{%><%= emps[i].Phone%><%}%></h5></span>
+                        <span><h5><%= emps[i].Email%></h5></span>
+                        <h5><%= emps[i].Assignment%></h5>
+                    </div>
+                </div>
+            </div>
+           <% }%>
+        </div></li>
+        </ul>
+    </section>
+</div>
 <script src="/javascripts/tableSearch.js" type="text/javascript" rel="script"></script>
 </body>
 </html>

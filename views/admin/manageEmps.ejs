@@ -7,20 +7,25 @@
 </head>
 <body>
 <% include ../partials/nav.ejs %>
-<div class="container">
-    <h1>Manage Employees</h1>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Manage Employees</h1>
 
-    <div class="row">
-        <!--                searches the table by using a javascript function-->
-        <div class="input-group form-inline">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
-            <input type="text" id="search" class="form-control" onkeyup="tableSearch('search','empTable')"
-                   placeholder="Search for employee">
-            <a role="button" class="btn btn-accent input-group-addon" data-toggle='modal' data-target='#addEmp'>Add New
-                Employee</a>
+        <div class="row">
+            <!--                searches the table by using a javascript function-->
+            <div class="input-group form-inline">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                <input type="text" id="search" class="form-control" onkeyup="tableSearch('search','empTable')"
+                       placeholder="Search for employee">
+                <a role="button" class="btn btn-accent input-group-addon" data-toggle='modal' data-target='#addEmp'>Add New
+                    Employee</a>
+            </div>
+
         </div>
-
     </div>
+</div>
+<div class="container">
+
 
     <div class="row table-responsive">
         <table class="table table-responsive" id="empTable">

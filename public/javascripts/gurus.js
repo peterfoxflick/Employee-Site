@@ -47,7 +47,7 @@ function upRatingsTable(app) {
  */
 function buildTableRow(item) {
   // build row data in a visually understandable manner
-  var row = '<tr>';
+  var row = '<tr class="animated fadeIn">';
   row += '<td class="col-md-3"><strong>' + item.Full_Name+ '</strong></td>';
   row += '<td class="col-md-3">' + item.Application + '</td>';
   row += '<td class="col-md-3">' + item.Rating + '</td>';

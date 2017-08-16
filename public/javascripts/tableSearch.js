@@ -23,3 +23,30 @@ function tableSearch(inp, tab) {
     }
   }
 }
+
+
+function cardSearch(inp, cards) {
+  var input, filter, ul, li, h, i, span, j;
+  input = document.getElementById(inp);
+  filter = input.value.toUpperCase();
+  ul = document.getElementById(cards);
+  li = ul.getElementsByTagName('li');
+
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    span = li[i].getElementsByTagName('span');
+    for( j = 0; j < span.length; j++) {
+      h = span[j].getElementsByTagName('h4')[0];
+      if(h){
+        if (h.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].className = "animated slideInUp";
+          li[i].style.display = "";
+        } else {
+          li[i].className = "animated fadeOut";
+          li[i].style.display = "none";
+        }
+      }
+    }
+  }
+}

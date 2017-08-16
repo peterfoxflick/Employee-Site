@@ -145,15 +145,30 @@ h1 {
   display: inline-block; }
 
 .panel-primary {
-  border: none; }
+  border: solid 1px #039ae3; }
   .panel-primary .panel-heading {
     background-color: #039ae3; }
+    .panel-primary .panel-heading h1, .panel-primary .panel-heading h2, .panel-primary .panel-heading h3, .panel-primary .panel-heading h4, .panel-primary .panel-heading h5 {
+      border: none;
+      padding: 0; }
 
 .panel-accent {
-  border: none; }
+  border: solid 1px #e63e73; }
   .panel-accent .panel-heading {
     background-color: #e63e73;
     color: #FFFFFF; }
+    .panel-accent .panel-heading h1, .panel-accent .panel-heading h2, .panel-accent .panel-heading h3, .panel-accent .panel-heading h4, .panel-accent .panel-heading h5 {
+      border: none;
+      padding: 0; }
+
+.panel-no-border {
+  border: none; }
+
+.jumbotron {
+  background-color: #0288D1;
+  color: #FFFFFF; }
+  .jumbotron .container {
+    background-color: inherit; }
 
 .login .form-signin {
   max-width: 330px;
@@ -188,5 +203,12 @@ h1 {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
+
+.empCard {
+  box-shadow: 3px 3px 8px #888888; }
+  .empCard h4, .empCard h3, .empCard h4 {
+    border: none; }
+  .empCard .panel-body {
+    min-height: 200px; }
 
 /*# sourceMappingURL=style.css.map */
