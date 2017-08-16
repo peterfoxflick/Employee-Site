@@ -24,13 +24,14 @@
                             <% } %>
                         </select>
                     </div>
-                    <div class="col-md-2"></div>
                     <div class="col-md-5">
                         <label for="appSelect">Application</label>
                         <select id="appSelect" class="form-control" onchange="upRatingsTable(this.value)">
                             <option>Select an Application</option>
                         </select>
                     </div>
+                    <label hidden>Spacer</label>
+                    <div class="col-md-2"><a id='editRatingsBtn' style='margin-top: 15%;' role="button" href="/empTools/editRatings" class="btn btn-default">Edit My Ratings</a></div>
                 </div>
             </div>
             <div class="panel-body">

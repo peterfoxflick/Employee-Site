@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+<body>
+<% include ../partials/nav.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Edit Ratings for <%= user.Full_Name %></h1>
+        </div>
+    </div>
+    <br><br>
+    <div class="panel panel-accent">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="catSelect">Category</label>
+                    <select id="catSelect" class="form-control" onchange="popTable(this.value)">
+                        <option>Select a Category</option>
+                        <% for(var i = 0; i < cats.length; i++) { %>
+                        <option value="<%= cats[i].CatId %>"><%= cats[i].Category %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button id='saveRatings' style='margin-top: 15%;' class="btn btn-default"
+                            onclick="saveRatings()">Save Ratings
+                    </button>
+                </div>
+                <div class="col-md-5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="form" id="ratings">
+    <table class="table table-responsive">
+        <thead>
+        <th>Application</th>
+        <th>Current Rating</th>
+        <th>New Rating</th>
+        <th>Certification Status</th>
+        </thead>
+
+            <tbody id="tbody">
+
+            </tbody>
+
+    </table>
+    </form>
+</div>
+<script src="/javascripts/changeRatings.js"></script>
+</body>
+</html>

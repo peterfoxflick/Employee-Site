@@ -53,4 +53,18 @@ router.get('/gurus', (req, res) => {
   });
 });
 
+router.get('/editRatings', (req, res, next) => {
+  let sess = req.session;
+  getCategories((err, result) => {
+    if(err) {
+      next(err)
+    } else {
+      res.render('employee/editRatings', {
+        user: sess.user,
+        cats: result
+      });
+    }
+  });
+});
+
 module.exports = router;

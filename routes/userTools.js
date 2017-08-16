@@ -87,4 +87,51 @@ router.post('/updatePwd', (req, res) => {
   });
 });
 
+router.get('/getMyRatings', (req, res)=> {
+  let cat = req.sanitize(req.query.cat);
+  let getMyRatings = require('../modules/user/getMyRatings');
+  getMyRatings(req.session.user.Id, cat, (err, ratings)=> {
+    if(err) {
+      console.log(err);
+      res.status(500).send(err.message);
+    } else {
+      res.json({
+        ratings: ratings
+      })
+    }
+  })
+});
+
+
+router.post('/updateMyRatings', (req, res)=> {
+  let ratings = JSON.parse(req.body.ratings);
+  let updateRating = require('../modules/user/updateRating');
+  console.log(ratings);
+  let error = false;
+  for(let x in ratings.id) {
+    // take the i off the end of the propery name
+    let guruId = x.slice(0,-1);
+    let rating = ratings.id[x];
+    let cert = ratings.cert[guruId + 'c'];
+    let ratingOb = {
+      guruId : guruId,
+      rating: rating,
+      cert: cert
+    };
+    updateRating(ratingOb, (err)=> {
+      if (err) {
+        console.log(err);
+        error = true;
+      }
+    })
+  }
+  if(!error){
+    res.send('asdf');
+  } else {
+    res.status(500).json({
+      message: "Could not update Guru rating. Please try again"
+    });
+  }
+});
+
 module.exports = router;

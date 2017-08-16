@@ -59,12 +59,13 @@ router.get('/getRatings', (req, res)=> {
   getRatings(app, (err, result)=> {
     if(err) {
       console.log(err);
-      res.send(err.message);
+      res.status(500).send(err.message);
     } else {
      res.json({ratings: result});
     }
   });
 });
+
 
 
 

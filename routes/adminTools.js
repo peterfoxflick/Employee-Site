@@ -149,6 +149,7 @@ router.post('/addApplication', (req, res)=> {
         appId: appId,
         cat: cat
       });
+      addApplicationToRatings(appId);
     }
   })
 });
@@ -241,6 +242,25 @@ function addUserToRatings(insertId) {
             console.log(err2);
           }
         })
+      }
+    }
+  });
+}
+
+
+function addApplicationToRatings(insertId) {
+  let getUsers = require('../modules/admin/getEmpList');
+  getUsers((err, emps)=> {
+    if(err) {
+      console.log(err);
+    } else {
+      let addAppRatings = require('../modules/admin/addAppRatings');
+      for(let i = 0; i < emps.length; i++) {
+        addAppRatings(insertId, emps[i].Id, (err1)=> {
+          if(err1) {
+            console.log(err1);
+          }
+        });
       }
     }
   });
