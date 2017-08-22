@@ -126,7 +126,9 @@ router.post('/updateMyRatings', (req, res)=> {
     })
   }
   if(!error){
-    res.send('asdf');
+    res.json({
+      message: 'Ratings Updated'
+    })
   } else {
     res.status(500).json({
       message: "Could not update Guru rating. Please try again"

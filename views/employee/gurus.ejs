@@ -4,14 +4,17 @@
         <% include ../partials/head.ejs %>
     </head>
     <body>
-        <% include ../partials/nav.ejs %>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="header">
-                <h1>FTC Guru's Ratings</h1>
+    <% include ../partials/nav.ejs %>
+    <div class="jumbotron animated fadeInLeft">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="header">
+                    <h1>FTC Guru's Ratings</h1>
+                </div>
             </div>
         </div>
-        <br><br>
+    </div>
+    <div class="container animated fadeInLeft" style="padding-top: 0">
         <div class="panel panel-accent panel-no-border">
             <div class="panel-heading">
                 <div class="row">
@@ -31,7 +34,9 @@
                         </select>
                     </div>
                     <label hidden>Spacer</label>
-                    <div class="col-md-2"><a id='editRatingsBtn' style='margin-top: 15%;' role="button" href="/empTools/editRatings" class="btn btn-default">Edit My Ratings</a></div>
+                    <div class="col-md-2"><a id='editRatingsBtn' style='margin-top: 15%;' role="button"
+                                             href="/empTools/editRatings" class="btn btn-default">Edit My Ratings</a>
+                    </div>
                 </div>
             </div>
             <div class="panel-body">

@@ -160,6 +160,8 @@ h1 {
     .panel-accent .panel-heading h1, .panel-accent .panel-heading h2, .panel-accent .panel-heading h3, .panel-accent .panel-heading h4, .panel-accent .panel-heading h5 {
       border: none;
       padding: 0; }
+  .panel-accent .panel-body h1, .panel-accent .panel-body h2, .panel-accent .panel-body h3, .panel-accent .panel-body h4, .panel-accent .panel-body h5 {
+    border: none; }
 
 .panel-no-border {
   border: none; }
@@ -210,5 +212,11 @@ h1 {
     border: none; }
   .empCard .panel-body {
     min-height: 200px; }
+
+.flex-parent a {
+  box-shadow: 3px 3px 8px #888888; }
+
+.modal-title {
+  padding-bottom: 0 !important; }
 
 /*# sourceMappingURL=style.css.map */

@@ -55,13 +55,13 @@ router.get('/gurus', (req, res) => {
 
 router.get('/editRatings', (req, res, next) => {
   let sess = req.session;
-  getCategories((err, result) => {
+  getCategories((err, cats) => {
     if(err) {
       next(err)
     } else {
       res.render('employee/editRatings', {
         user: sess.user,
-        cats: result
+        cats: cats
       });
     }
   });

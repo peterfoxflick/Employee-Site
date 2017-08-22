@@ -55,9 +55,23 @@ function saveRatings() {
   $.post('/userTools/updateMyRatings', {
     ratings: form
   }, function(data, status){
-    console.log(data);
+    $.notify({
+      title: '<strong>Success!</strong>',
+      message: data.message,
+      icon: '/images/kip.gif'
+    },{
+      icon_type: 'image',
+      type: 'success'
+    });
   }).fail(function(){
-    alert('fail');
+    $.notify({
+      title: '<strong>Warning!</strong>',
+      icon: '/images/aaron.gif',
+      message: data.responseJSON.message + '. Information not updated'
+    }, {
+      type: 'danger',
+      icon_type: 'image'
+    });
   });
 
 }

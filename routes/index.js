@@ -107,4 +107,11 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/issueroutingdev', (req, res) => {
+  let sess = req.session;
+  res.render('staticPages/issueroutingdev', {
+    user: sess.user
+  });
+});
+
 module.exports = router;

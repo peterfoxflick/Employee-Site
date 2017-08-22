@@ -5,13 +5,16 @@
 </head>
 <body>
 <% include ../partials/nav.ejs %>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>Edit Ratings for <%= user.Full_Name %></h1>
+<div class="jumbotron animated fadeInLeft">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Edit Ratings for <%= user.Full_Name %></h1>
+            </div>
         </div>
     </div>
-    <br><br>
+</div>
+<div class="container  animated fadeInLeft" style="padding-top: 0">
     <div class="panel panel-accent">
         <div class="panel-heading">
             <div class="row">
@@ -35,19 +38,19 @@
         </div>
     </div>
     <form class="form" id="ratings">
-    <table class="table table-responsive">
-        <thead>
-        <th>Application</th>
-        <th>Current Rating</th>
-        <th>New Rating</th>
-        <th>Certification Status</th>
-        </thead>
+        <table class="table table-responsive">
+            <thead>
+            <th>Application</th>
+            <th>Current Rating</th>
+            <th>New Rating</th>
+            <th>Certification Status</th>
+            </thead>
 
             <tbody id="tbody">
 
             </tbody>
 
-    </table>
+        </table>
     </form>
 </div>
 <script src="/javascripts/changeRatings.js"></script>
