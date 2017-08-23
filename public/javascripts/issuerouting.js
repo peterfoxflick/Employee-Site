@@ -28,6 +28,23 @@ function showRoleCheck(t, q) {
   query += q;
 }
 
+function showMacRoleCheck(t) {
+  $(`#${t}`).removeClass('fadeIn').addClass('fadeOut');
+  setTimeout(function(){
+    $(`#${t}`).hide();
+    $('#RoleCheckMac').removeClass('fadeOut').show().addClass("animated fadeIn");
+  },700);
+}
+
+function showPersonalCheck(t, q){
+  $(`#${t}`).removeClass('fadeIn').addClass('fadeOut');
+  setTimeout(function(){
+    $(`#${t}`).hide();
+    $('#personalCheck').removeClass('fadeOut').show().addClass("animated fadeIn");
+  },700);
+  query += q;
+}
+
 /**
  * This function uses the list found in isrouter.js to display department info
  * @param q

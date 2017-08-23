@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head.ejs %>
+    <title>FTC Employees | Issue Routing</title>
+    <link href="/stylesheets/issue-routing.css" rel="stylesheet"  />
+    <script src="/javascripts/isrouter.js"></script>
+    <script src="/javascripts/tableSearch.js"></script>
+</head>
+
+<body>
+
+<% include ../partials/nav.ejs %>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="text-center">Issue Routing</h1>
+        <p class="text-center">Ever received a phone call that was supposed to go to another office? Of course you have, probably multiple times a day. Have you ever wondered where exactly you should pass this issue? Check out the chart below; it contains helpful information on what issue goes where at BYU-Idaho</p>
+    </div>
+</div>
+<div class="container" id="outermost">
+    <div class="row">
+        <div class="alert alert-info text-center">
+            If you are looking for some info that used to be on the whiteboard, click this link. <a href="https://docs.google.com/document/d/1Ez5b-bxBc8Pjpqd61qDyOghYBXtDD_IJ2e6Unhb2o04/edit?usp=sharing" target="_blank">Whiteboard Info</a>
+        </div>
+    </div>
+
+
+
+    <div class="row well well-lg">
+        <div class="col-md-2 hidden-sm hidden-xs">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>What Services?</h2>
+        </div>
+        <div class="col-md-10">
+            <h2 class="text-center">Which Office?</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="issue-routing">
+                    <tr>
+                        <td>
+                            <h4>FTC</h4></td>
+                        <td>
+                            <h4>Desktop Support</h4></td>
+                        <td>
+                            <h4>BSC</h4></td>
+                        <td>
+                            <h4>Course Support</h4></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>I-Learn (On-Campus faculty and level 2 student issues)</li>
+                                <li>Qualtrics</li>
+                                <li>Kaltura</li>
+                                <li>Equella</li>
+                                <li>Adobe Suite</li>
+                                <li>Adobe Connect (Not Online)</li>
+                                <li>Microsoft Suite</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Hardware Issues</li>
+                                <li>Wireless Printing</li>
+                                <li>WIFI Connectivity</li>
+                                <li>Printers</li>
+                                <li>Office Computers</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Student Tech Issues</li>
+                                <li>Login/Password Issues</li>
+                                <li>Appointments for Desktop Support</li>
+                                <li>All Misdirected Tickets</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li> Online I-Learn Courses</li>
+                                <li> Online Adobe Connect Rooms</li>
+                                <li> Online Mapla TA Issues</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <section class="whiteboard">
+                    <h1 class="text-center">Who To Call</h1>
+                    <p class="text-center">Below is a list of the extensions to help you transfer to the right department to help your issue.</p>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                        <input id="search" class="form-control" onkeyup="tableSearch('search','extTable')" placeholder="Search for department">
+                    </div>
+                    <table class="table table-striped" id="extTable">
+                        <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Extension</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Printer Help</span></p>
+                            </td>
+
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7125</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Uber Help Desk (DO NOT GIVE OUT THIS NUMBER, TRANSFERS ONLY)</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9009</span></p>
+                            </td></tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c4"><span class="c5">Support Center (BSC)</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1411</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c4"><span class="c5">Media Transfer</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">3253</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c4"><span class="c5">Email</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7007</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c24"><td class="c0" colspan="1" rowspan="1">
+                                <p class="c4">
+                                    <span class="c5">Records and Registration</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1000</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c4"><span class="c5">Registration</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1025</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c4"><span class="c5">Classroom Tech</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7070</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">AV/Event Services</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">3150</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Course Improvement </span></p>
+
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1582</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Online Course Support</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1866</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Campus Phones (Jason Zimmer)</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7134</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">VM Ware (Gordon Smith)</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7129</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Photo Services</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7232</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">EdTech</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7236</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Testing Center</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1765</span></p>
+                            </td>
+                        </tr>
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Tech</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1760</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Cary Johnson</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1530</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Corey Moore</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">1525</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">I-Plan Help</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9822</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Ben Wilson (3.0 Roles)</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7053</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Dane Bohman</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7217</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Dan Gordon</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7255</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Nursing</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">4551</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Copyright (Nate Wise)</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9544</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Matt Miles (Equella)</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9541</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Jon Fackrell (Equella)</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9516</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Chris Smelcer (Kaltura)</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">3208</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9"><td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">STC</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7231</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Dean Allen</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7211</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Closed Captioning</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">3218</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Career Navigator</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9824</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Brother Wilcock</span></p>
+                            </td>
+                            <td class="c1" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7216</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">FTC Extension</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7230</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Pathway Support</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">9898</span></p>
+                            </td>
+                        </tr>
+
+                        <tr class="c9">
+                            <td class="c0 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c5">Grade Submit</span></p>
+                            </td>
+                            <td class="c1 c6" colspan="1" rowspan="1">
+                                <p class="c2"><span class="c11">7061</span></p>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</body>
+
+</html>
