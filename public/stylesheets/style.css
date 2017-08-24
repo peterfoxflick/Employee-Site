@@ -219,4 +219,7 @@ h1 {
 .modal-title {
   padding-bottom: 0 !important; }
 
+.no-border {
+  border: none; }
+
 /*# sourceMappingURL=style.css.map */

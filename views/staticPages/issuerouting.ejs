@@ -8,16 +8,17 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Issue Routing</h1>
+        <h4 class="no-border text-center">Here you can find information regarding routing non-FTC issues</h4>
+        <h5 class="text-center">For a full list, see the <a href="https://docs.google.com/document/d/1Ez5b-bxBc8Pjpqd61qDyOghYBXtDD_IJ2e6Unhb2o04/edit?usp=sharing" target="_blank" style="color: inherit;">Whiteboard Info</a> document</h5>
     </div>
 </div>
 <div class="container">
-
-    <br>
     <div class="row">
         <div id="d" class="col-md-6 col-md-offset-3">
 
         </div>
     </div>
+
     <section id="buttons">
         <section id="tier1" class="text-center">
             <div class="row">
@@ -100,7 +101,7 @@
                     </button>
                 </div>
                 <div class="col-sm-12 col-md-3">
-                    <button class="btn btn-block btn-accent btn-lg" id="projector" data-query="c">Projector</button>
+                    <button class="btn btn-block btn-accent btn-lg" id="projector" onclick="showPanel('hcc')">Projector</button>
                 </div>
             </div>
         </section>
@@ -110,13 +111,13 @@
                     <button class="btn btn-block btn-accent btn-lg" id="equella" onclick="showRoleCheck('tier2s', 'equella')">Equella</button>
                 </div>
                 <div class="col-sm-12 col-md-3">
-                    <button class="btn btn-block btn-accent btn-lg" id="kaltura">Kaltura</button>
+                    <button class="btn btn-block btn-accent btn-lg" id="kaltura" onclick="showPanel('kaltura')">Kaltura</button>
                 </div>
                 <div class="col-sm-12 col-md-3">
                     <button class="btn btn-block btn-accent btn-lg" id="iplan" onclick="showPanel('iplan')">I-Plan</button>
                 </div>
                 <div class="col-sm-12 col-md-3">
-                    <button class="btn btn-block btn-accent btn-lg" id="ilearn">I-Learn</button>
+                    <button class="btn btn-block btn-accent btn-lg" id="ilearn" onclick="showiLearnTier()">I-Learn</button>
                 </div>
             </div>
             <br>
@@ -135,9 +136,32 @@
                 </div>
             </div>
         </section>
+        <section id="ilearnTier" hidden>
+            <div class="row text-center">
+                <h4 class="no-border">Select Role</h4>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <button class="btn btn-block btn-accent btn-lg" onclick="showPanel('FTC')">Faculty</button>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <button class="btn btn-block btn-accent btn-lg" onclick="showPanel('courseSupport')">Online Faculty</button>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <button class="btn btn-block btn-accent btn-lg" onclick="showPanel('BSC')">Campus Student</button>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <button class="btn btn-block btn-accent btn-lg" onclick="showPanel('courseSupport')">Pathway Student</button>
+                </div>
+            </div>
+            <br>
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <button class="btn btn-block btn-accent btn-lg" onclick="showPanel('ilearnIT')">FTC Employee</button>
+                </div>
+            </div>
+        </section>
         <section id="RoleCheck" hidden>
             <div class="row text-center">
-                <h4> Select Role</h4>
+                <h4 class="no-border"> Select Role</h4>
                 <div class="col-sm-12 col-md-6">
                     <button class="btn btn-block btn-accent btn-lg" id="student" onclick="showPanel('BSC')">Student
                     </button>
@@ -149,7 +173,7 @@
         </section>
         <section id="RoleCheckMac" hidden>
             <div class="row text-center">
-                <h4> Select Role</h4>
+                <h4 class="no-border"> Select Role</h4>
                 <div class="col-sm-12 col-md-6">
                     <button class="btn btn-block btn-accent btn-lg" id="student" onclick="showPanel('mac')">Student
                     </button>
@@ -161,7 +185,7 @@
         </section>
         <section id="personalCheck" hidden>
             <div class="row text-center">
-                <h4>Is this a personal computer?</h4>
+                <h4 class="no-border">Is this a personal computer?</h4>
                 <div class="col-sm-12 col-md-6">
                     <button class="btn btn-block btn-accent btn-lg" id="personal"
                             onclick="showRoleCheck('personalCheck', 'p')">Yes
