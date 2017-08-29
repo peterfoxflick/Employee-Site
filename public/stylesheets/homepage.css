@@ -33,6 +33,7 @@
   .flex-child span.glyphicon {
     font-size: 1.5em; }
   .flex-child a {
+    outline: none;
     margin: auto;
     align-content: center; }
 

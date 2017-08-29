@@ -7,8 +7,12 @@
 </head>
 <body class="adminGuruEdit">
 <% include ../partials/nav.ejs %>
-
-<div class="container">
+<div class="jumbotron animated fadeInLeft">
+    <div class="container">
+        <h1>Manage Gurus</h1>
+    </div>
+</div>
+<div class="container animated fadeInLeft">
     <section id="add">
         <div class="row">
             <div class="col-md-6">
@@ -73,53 +77,52 @@
             </div>
         </div>
     </section>
+</div>
+<div id="deleteCatModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <div id="deleteCatModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Category</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete the <span id="catToDel"></span> category? This will also delete
-                        <strong>ALL</strong>
-                        applications and ratings listed in this category. <br> <u class="text-danger">This cannot be
-                            undone</u></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="delCatBtn" data-dismiss="modal" onclick="delCat()">
-                        Delete
-                    </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Category</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the <span id="catToDel"></span> category? This will also delete
+                    <strong>ALL</strong>
+                    applications and ratings listed in this category. <br> <u class="text-danger">This cannot be
+                        undone</u></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="delCatBtn" data-dismiss="modal" onclick="delCat()">
+                    Delete
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="deleteAppModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+<div id="deleteAppModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Application</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete <span id="appToDel"></span> from the Gurus? This will also delete
-                        <strong>ALL</strong>
-                        ratings associated with this application <br><u class="text-danger">This cannot be
-                            undone</u></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="delAppBtn" data-dismiss="modal" onclick="delApp()">
-                        Delete
-                    </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Application</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <span id="appToDel"></span> from the Gurus? This will also delete
+                    <strong>ALL</strong>
+                    ratings associated with this application <br><u class="text-danger">This cannot be
+                        undone</u></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="delAppBtn" data-dismiss="modal" onclick="delApp()">
+                    Delete
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
