@@ -70,7 +70,8 @@ a .glyphicon, a p {
     border: solid 1px #039ae3;
     border-bottom: none;
     border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0; }
+    border-bottom-right-radius: 0;
+    background-color: white; }
   .nav-pills li a:hover {
     background-color: #0288D1;
     color: #FFFFFF;

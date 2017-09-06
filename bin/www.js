@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 /**
+ * Note: You should not normally need to update or change this file.
+ * IIS uses this to create a server instance.
+ */
+
+
+/**
  * Module dependencies.
  */
 
