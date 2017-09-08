@@ -1,14 +1,9 @@
 const pool = require('../dbconnect');
 const SQL = require('sql-template-strings');
 
-/**
- * Adds an entry into
- * @param appId
- * @param userId
- * @param callback
- */
 
-function addAppRatings(appId, userId, callback) {
+
+function addUserRatings(userId, appId, callback) {
   pool.query(SQL`INSERT INTO gururatings (EmpId, AppId) VALUES (${userId}, ${appId});`, (err, result) => {
     if(err) {
       callback(err);
@@ -18,4 +13,4 @@ function addAppRatings(appId, userId, callback) {
   });
 }
 
-module.exports = addAppRatings;
+module.exports = addUserRatings;
