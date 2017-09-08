@@ -2,7 +2,7 @@
 ## Source code for our FTC Employee Site
 
 
-###**Table of Contents**
+### **Table of Contents**
 
 1. Introduction
 2. Site Structure
@@ -29,8 +29,8 @@ computer: ftcemp
 
 User: BYUI\\{your BYUI username}
 
-##II. Site Structure
-###Overview
+## II. Site Structure
+### Overview
 This site is built on the Node.js platform, and hosted by an IIS server module. 
 As such, the entire backend is written in JavaScript using the Express framework. The site was built using 
 an MVC architecture (for information on what MVC is, checkout this video -> https://www.youtube.com/watch?v=1IsL6g2ixak). 
@@ -55,7 +55,7 @@ To learn more about how to access the database from Node.js, please see these [d
 Additionally, all of the database queries currently listed in the site make use of the SQL template strings library.
 This module helps to simplify creating dynamic database queries. You can find the SQL Template Strings docs [here](https://www.npmjs.com/package/sql-template-strings)
 
-###Model
+### Model
 The files making up the model of this site can be found in the modules folder. 
 Each model function has been separated into its own JS module to increase ease of use. 
 The majority of the these modules communicate with the database in some way, and therefore 
@@ -65,25 +65,25 @@ purpose. Although a module could theoretically be called by any controller, with
 of common modules, most are only used by the correspondingly named controller. For example, modules
 located in the admin folder are generally only called by the adminTools controller. 
 
-###Controller
+### Controller
 The controllers for the site are located in the routes folder. Each controller file exports
 a router object that defines url endpoints users can access. These endpoints handle submitted data, 
 pass it to the appropriate model function to be processed. Some of these endpoints
 return webpages, while many return json data that can be used to modify or update
 elements on a webpage. 
 
-###Views
+### Views
 Views can be found in the views folder. These are EJS templates (Basically HTML with embedded JavaScript to make it dynamic). 
 Data from the model is often passed to these pages through the controller. See the EJS docs for information on how
 to do this. Several of these views make use of partials, aka small external files that need to be repeated. For instance, 
 the navbar element is written in its own file, and simply included in every webpage. Using partial views makes it easy
 to update common elements accross the site, and should be used when feasible. 
 
-###Public
+### Public
 This directory contains files that are available for public access. This can include things like images, css, and js files
 that are included on webpages. 
 
-##III. API Instructions
+## III. API Instructions
 This website makes uses of RESTful endpoints to create an API shell. Although not a true REST API, there are RESTful
 endpoints that provide access to data. To access the majority of these endpoints, you will need to be logged in. 
 
@@ -96,14 +96,14 @@ Endpoints are organized into several categories:
 For a full description of the API, please see this [reference](https://swaggerhub.com/apis/ftcemployees/FTCemp/1.0.0). 
 To edit that API reference, login to Swaggerhub with the FTC GitHub account. 
 
-##IV. Tips
+## IV. Tips
 
 Coming Soon
 
-##V. General Guides
+## V. General Guides
 
 Coming Soon
 
-##VI. Troubleshooting
+## VI. Troubleshooting
 
 Coming Soon
