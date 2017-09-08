@@ -7,31 +7,35 @@
 ::-webkit-scrollbar
   width: 6px
   height: 6px
+  position: absolute
+
 
 ::-webkit-scrollbar-button
   width: 0
   height: 0
 
 ::-webkit-scrollbar-thumb
-  background: $primary-color-dark
+  background: $primary-color
   border: 0 none #ffffff
-  border-radius: 50px
+  //border-radius: 50px
 ::-webkit-scrollbar-thumb:hover
-  background: #ffffff
+  background: $primary-color-dark
+  display: block
 
 ::-webkit-scrollbar-thumb:active
-  background: #000000
+  background: $primary-color-dark
 
 ::-webkit-scrollbar-track
-  background: #666666
-  border: 0px none #ffffff
+  background: #EAEEF2
+  border: 0 none #ffffff
+  border-radius: 50px
   //border-radius: 50px
 
 ::-webkit-scrollbar-track:hover
-  background: #666666
+  background: #EAEEF2
 
 ::-webkit-scrollbar-track:active
-  background: #333333
+  background: #EAEEF2
 
 ::-webkit-scrollbar-corner
   background: transparent

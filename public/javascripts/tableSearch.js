@@ -24,7 +24,11 @@ function tableSearch(inp, tab) {
   }
 }
 
-
+/**
+ * Same idea as the table search, but it searches Cards.
+ * @param inp
+ * @param cards
+ */
 function cardSearch(inp, cards) {
   var input, filter, ul, li, h, i, span, j;
   input = document.getElementById(inp);

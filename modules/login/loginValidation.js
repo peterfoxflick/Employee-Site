@@ -9,7 +9,12 @@ function loginValidation(req, res, next) {
   if(sess.user) {
     return next();
   }
-  res.redirect('/');
+  else {
+    // if no user session, send a 403 error
+    let err = new Error('Forbidden: You must be logged in to access this page');
+    err.status = 403;
+    next(err);
+  }
 }
 
 module.exports = loginValidation;

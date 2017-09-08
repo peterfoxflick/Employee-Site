@@ -235,9 +235,9 @@ function addUserToRatings(insertId) {
     if(err1) {
       console.log(err1)
     } else {
-      let addUserRatings = require('../modules/admin/addUserRatings');
+      let addRatings = require('../modules/admin/addRatings');
       for(let i = 0; i < apps.length; i++) {
-        addUserRatings(insertId, apps[i].AppId, (err2) => {
+        addRatings(apps[i].AppId, insertId,  (err2) => {
           if(err2) {
             console.log(err2);
           }
@@ -254,9 +254,9 @@ function addApplicationToRatings(insertId) {
     if(err) {
       console.log(err);
     } else {
-      let addAppRatings = require('../modules/admin/addAppRatings');
+      let addRatings = require('../modules/admin/addRatings');
       for(let i = 0; i < emps.length; i++) {
-        addAppRatings(insertId, emps[i].Id, (err1)=> {
+        addRatings(insertId, emps[i].Id, (err1)=> {
           if(err1) {
             console.log(err1);
           }

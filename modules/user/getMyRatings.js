@@ -1,6 +1,13 @@
 const pool = require('../dbconnect');
 const SQL = require('sql-template-strings');
 
+/**
+ * Gets all of a user's ratings for an application category. Returns an array of Ratings.
+ *
+ * @param id - userId
+ * @param cat - catId
+ * @param callback
+ */
 function getMyRatings(id, cat, callback) {
   pool.query(SQL`SELECT gururatings.GuruId, applications.Application, gururatings.Certified, gururatings.Rating 
                  FROM gururatings

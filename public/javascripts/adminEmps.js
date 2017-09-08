@@ -1,3 +1,7 @@
+/**
+ * AJAX function to update user information from the admin page
+ * @param id
+ */
 function updateUser(id) {
   userInfo = {
     id: id,
@@ -26,14 +30,24 @@ function updateUser(id) {
 }
 
 
-
+/**
+ * Populates the remove user dialog with employee name
+ * @param id
+ * @param name
+ */
 function displayName(id, name) {
   $('#dName').html(name);
+  // set the data-id attribute to the user id
   $('#rmUserBtn').attr('data-id', id);
 }
 
+/**
+ * AJAX function to delte user from the database
+ * @param id
+ */
 function removeUser(id) {
   $.post('/adminTools/removeUser', { id: id }, function(data, status) {
+    // remove the user row from the employee table
     $('#' + id + 'Row').remove();
     $.notify({
       title: '<strong>Success!</strong>',
@@ -51,6 +65,9 @@ function removeUser(id) {
   });
 }
 
+/**
+ * Adds a new employee to the db
+ */
 function addEmp() {
   $.post('/adminTools/addUser', $('#newEmpForm').serialize(), function(data, status) {
     $.notify({

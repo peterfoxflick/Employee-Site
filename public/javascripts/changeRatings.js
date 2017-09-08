@@ -33,7 +33,7 @@ function buildTableRow(item) {
   return row;
 }
 
-
+// Quick function to ensure that rating is between 1 and 10
 function validRating(id, elemId) {
   var pattern = /^\d$|10$/;
   console.log(id, elemId);
@@ -48,6 +48,7 @@ function validRating(id, elemId) {
     return false;
   }
 }
+
 
 function saveRatings() {
   var form = $('form#ratings').serializeJSON();

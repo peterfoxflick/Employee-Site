@@ -3,6 +3,8 @@
  */
 
 $(document).ready(function () {
+
+  // this lets them just press enter instead of clicking the button
   $('#loginPassword').keyup(function(event){
     if(event.keyCode === 13) {
       console.log('clicking button');

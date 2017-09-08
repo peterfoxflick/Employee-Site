@@ -92,32 +92,34 @@ fieldset[disabled] .btn-accent:hover, fieldset[disabled] .btn-accent:focus, fiel
 
 ::-webkit-scrollbar {
   width: 6px;
-  height: 6px; }
+  height: 6px;
+  position: absolute; }
 
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0; }
 
 ::-webkit-scrollbar-thumb {
+  background: #039ae3;
+  border: 0 none #ffffff; }
+
+::-webkit-scrollbar-thumb:hover {
   background: #0288D1;
+  display: block; }
+
+::-webkit-scrollbar-thumb:active {
+  background: #0288D1; }
+
+::-webkit-scrollbar-track {
+  background: #EAEEF2;
   border: 0 none #ffffff;
   border-radius: 50px; }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff; }
-
-::-webkit-scrollbar-thumb:active {
-  background: #000000; }
-
-::-webkit-scrollbar-track {
-  background: #666666;
-  border: 0px none #ffffff; }
-
 ::-webkit-scrollbar-track:hover {
-  background: #666666; }
+  background: #EAEEF2; }
 
 ::-webkit-scrollbar-track:active {
-  background: #333333; }
+  background: #EAEEF2; }
 
 ::-webkit-scrollbar-corner {
   background: transparent; }

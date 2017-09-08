@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt-nodejs');
 
 /**
  * module to change the user password
+ * First we grab the existing password listed and use a hash compare to verify they entered the correct
+ * password. We then call a second function to hash and update the user password.
+ *
  * @param userInfo - contains the user id, password, new password, and confirmation password.
  * @param callback
  */

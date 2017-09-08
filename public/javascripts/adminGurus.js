@@ -21,13 +21,20 @@ function buildInputGroup(item) {
   var options = $('#catSelectApps > option').clone();
   var selectId = item.AppId + 'cat';
   $('#editAppTarget').append('<div class="input-group">' +
-      '<span class="input-group-addon">' +
-      '<i class="glyphicon glyphicon-edit"></i>' +
-      '</span>' +
-      '<input data-toggle="tooltip" title="Double Click to Edit" class="form-control editApp" value="'+ item.Application +
-      '" id="' + item.AppId + 'app" data-id="' + item.AppId + '" readOnly="true" ondblclick="this.readOnly = null; $(this).addClass(\'upapp\')">' +
-      '<select class="form-control appCatSelect" id="' + selectId + '" onchange="$(\'#' + item.AppId + 'app\').addClass(\'upapp\')"></select>' +
-      '<span class="input-group-addon" onclick="popAppDelModal('+ item.AppId +',\''+ item.Application+'\')" data-toggle="modal" data-target="#deleteAppModal"><i class="glyphicon glyphicon-trash"></i></span></div>');
+                                '<span class="input-group-addon">' +
+                                  '<i class="glyphicon glyphicon-edit"></i>' +
+                                '</span>' +
+                                '<input data-toggle="tooltip" title="Double Click to Edit" class="form-control editApp"' +
+                                        ' value="'+ item.Application + '" id="' + item.AppId + 'app" data-id="' + item.AppId +
+                                        '" readOnly="true" ondblclick="this.readOnly = null; $(this).addClass(\'upapp\')">' +
+                                '<select class="form-control appCatSelect" id="' + selectId + '" ' +
+                                ' onchange="$(\'#' + item.AppId + 'app\').addClass(\'upapp\')"></select>' +
+                                '<span class="input-group-addon" ' +
+                                        ' onclick="popAppDelModal('+ item.AppId +',\''+ item.Application+'\')" ' +
+                                        ' data-toggle="modal" data-target="#deleteAppModal">' +
+                                    '<i class="glyphicon glyphicon-trash"></i>' +
+                                '</span>' +
+                            '</div>');
   $('#' + selectId).append(options);
   $('#' + selectId).val($('#catSelectApps').val())
 }
