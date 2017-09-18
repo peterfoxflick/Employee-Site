@@ -8,7 +8,8 @@
 
 let express = require('express');
 let router = express.Router();
-let multer = require('multer');
+let upload = require('../modules/user/multerHandler');
+
 
 /* GET userInfo page */
 router.get('/userInfo', (req, res) => {
@@ -137,13 +138,8 @@ router.post('/updateMyRatings', (req, res)=> {
   }
 });
 
-router.post('/uploadPicture', multer({ dest: './public/images/employeePics/'}).single('newPic'),(req, res, next)=> {
-  let fs = require('fs');
-  let tmp_path = req.file.path;
-  let target_path = './public/images/employeePics/'
-  console.log(req.body);
-  console.log(req.file);
-  res.status(204).end();
+router.post('/uploadPicture', upload.single('newPic'),(req, res, next)=> {
+  //TODO write uploadProfilePIc module
 });
 
 module.exports = router;
