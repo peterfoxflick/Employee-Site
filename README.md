@@ -29,7 +29,7 @@ computer: ftcemp
 
 User: BYUI\\{your BYUI username}
 
-## II. Site Structure  <a name="siteStruct"></a>
+## <a name="siteStruct"></a>II. Site Structure  
 ### Overview
 This site is built on the Node.js platform, and hosted by an IIS server module. 
 As such, the entire backend is written in JavaScript using the Express framework. The site was built using 
@@ -83,7 +83,7 @@ to update common elements accross the site, and should be used when feasible.
 This directory contains files that are available for public access. This can include things like images, css, and js files
 that are included on webpages. 
 
-## III. API Instructions <a name="api"></a>
+## <a name="api"></a>III. API Instructions 
 This website makes uses of RESTful endpoints to create an API shell. Although not a true REST API, there are RESTful
 endpoints that provide access to data. To access the majority of these endpoints, you will need to be logged in. 
 
@@ -96,14 +96,14 @@ Endpoints are organized into several categories:
 For a full description of the API, please see this [reference](https://swaggerhub.com/apis/ftcemployees/FTCemp/1.0.0). 
 To edit that API reference, login to Swaggerhub with the FTC GitHub account. 
 
-## IV. Tips  <a name="tips"></a>
+## <a name="tips"></a> IV. Tips  
 
 Coming Soon
 
-## V. General Guides  <a name="general"></a>
+## <a name="general"></a> V. General Guides  
 
 Coming Soon
 
-## VI. Troubleshooting  <a name="troubleshooting"></a>
+## <a name="troubleshooting"></a> VI. Troubleshooting 
 
 Coming Soon

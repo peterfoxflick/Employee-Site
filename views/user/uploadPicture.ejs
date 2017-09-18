@@ -1,0 +1,57 @@
+<div id="uploadPicture" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <form ref="pictureUpload" id="pictureUpload" method="post" action="/userTools/uploadPicture" enctype="multipart/form-data">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload Picture</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse... <input type="file" style="display: none;" name="newPic">
+                    </span>
+                    </label>
+                    <input type="text" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-accent">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<script>
+  $(function() {
+
+    // We can attach the `fileselect` event to all file inputs on the page
+    $(document).on('change', ':file', function() {
+      var input = $(this),
+          numFiles = input.get(0).files ? input.get(0).files.length : 1,
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+      input.trigger('fileselect', [numFiles, label]);
+    });
+
+    // We can watch for our custom `fileselect` event like this
+    $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if( input.length ) {
+          input.val(log);
+        } else {
+          if( log ) alert(log);
+        }
+
+      });
+    });
+
+  });
+</script>

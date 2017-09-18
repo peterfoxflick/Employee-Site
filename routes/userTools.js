@@ -8,6 +8,7 @@
 
 let express = require('express');
 let router = express.Router();
+let multer = require('multer');
 
 /* GET userInfo page */
 router.get('/userInfo', (req, res) => {
@@ -109,7 +110,7 @@ router.post('/updateMyRatings', (req, res)=> {
   console.log(ratings);
   let error = false;
   for(let x in ratings.id) {
-    // take the i off the end of the propery name
+    // take the i off the end of the property name
     let guruId = x.slice(0,-1);
     let rating = ratings.id[x];
     let cert = ratings.cert[guruId + 'c'];
@@ -134,6 +135,15 @@ router.post('/updateMyRatings', (req, res)=> {
       message: "Could not update Guru rating. Please try again"
     });
   }
+});
+
+router.post('/uploadPicture', multer({ dest: './public/images/employeePics/'}).single('newPic'),(req, res, next)=> {
+  let fs = require('fs');
+  let tmp_path = req.file.path;
+  let target_path = './public/images/employeePics/'
+  console.log(req.body);
+  console.log(req.file);
+  res.status(204).end();
 });
 
 module.exports = router;
