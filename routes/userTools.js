@@ -8,6 +8,8 @@
 
 let express = require('express');
 let router = express.Router();
+let upload = require('../modules/user/multerHandler');
+
 
 /* GET userInfo page */
 router.get('/userInfo', (req, res) => {
@@ -109,7 +111,7 @@ router.post('/updateMyRatings', (req, res)=> {
   console.log(ratings);
   let error = false;
   for(let x in ratings.id) {
-    // take the i off the end of the propery name
+    // take the i off the end of the property name
     let guruId = x.slice(0,-1);
     let rating = ratings.id[x];
     let cert = ratings.cert[guruId + 'c'];
@@ -134,6 +136,28 @@ router.post('/updateMyRatings', (req, res)=> {
       message: "Could not update Guru rating. Please try again"
     });
   }
+});
+
+router.post('/uploadPicture', upload.single('newPic'),(req, res, next)=> {
+  let sess = req.session;
+  let removePic = require('../modules/user/removeProfilePic');
+  removePic(sess.user.Picture);
+  let updatePic = require('../modules/user/updateProfilePic');
+  updatePic(sess.user.Id, req.file.filename, (err)=>{
+    if(err) {
+      console.log(err);
+      res.status(500).json({
+        message: "Could not update picture. Please refresh and try again"
+      });
+    } else {
+      console.log('no error');
+
+      sess.user.Picture = `/images/employeePics/${req.file.filename}`;
+      res.render('user/userInfo', {
+        user : sess.user
+      })
+    }
+  });
 });
 
 module.exports = router;
