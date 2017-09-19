@@ -4,7 +4,7 @@ let multer = require('multer'),
 
 let storage = multer.diskStorage({
     destination: (req,file,cb) => {
-        cb(null, 'public/images/employeePics/')
+        cb(null, './public/images/employeePics/')
     },
     filename: (req, file, cb) => {
         crypto.pseudoRandomBytes(16, (err, raw)=> {

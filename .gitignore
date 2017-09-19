@@ -1,6 +1,9 @@
 connectionString.js
 node_modules/
 .idea
-cache/
+cache/*
 iisnode/
 npm-debug.log
+employeePics/
+!employeePics/default.png
+

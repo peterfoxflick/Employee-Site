@@ -139,7 +139,25 @@ router.post('/updateMyRatings', (req, res)=> {
 });
 
 router.post('/uploadPicture', upload.single('newPic'),(req, res, next)=> {
-  //TODO write uploadProfilePIc module
+  let sess = req.session;
+  let removePic = require('../modules/user/removeProfilePic');
+  removePic(sess.user.Picture);
+  let updatePic = require('../modules/user/updateProfilePic');
+  updatePic(sess.user.Id, req.file.filename, (err)=>{
+    if(err) {
+      console.log(err);
+      res.status(500).json({
+        message: "Could not update picture. Please refresh and try again"
+      });
+    } else {
+      console.log('no error');
+
+      sess.user.Picture = `/images/employeePics/${req.file.filename}`;
+      res.render('user/userInfo', {
+        user : sess.user
+      })
+    }
+  });
 });
 
 module.exports = router;
