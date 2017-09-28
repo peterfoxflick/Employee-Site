@@ -48,7 +48,7 @@ app.use(session({
     , resave: true
 }));
 app.use('/', index);
-app.use('/misc', misc)
+app.use('/misc', misc);
 app.use(loginValidation);
 app.use('/empTools', empTools);
 app.use('/api', api);
