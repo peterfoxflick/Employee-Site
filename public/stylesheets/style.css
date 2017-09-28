@@ -239,10 +239,14 @@ h1 {
 
 .empCard {
   box-shadow: 3px 3px 8px #888888; }
+  .empCard img {
+    width: 50%;
+    display: inline;
+    border-radius: 20px; }
   .empCard h4, .empCard h3, .empCard h4 {
     border: none; }
   .empCard .panel-body {
-    min-height: 200px; }
+    height: 300px; }
 
 .flex-parent a {
   box-shadow: 3px 3px 8px #888888; }

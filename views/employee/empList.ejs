@@ -31,7 +31,7 @@
                         <span><h4><%= emps[i].Full_Name %></h4></span>
                     </div>
                     <div class="panel-body text-center">
-                        <span class="glyphicon glyphicon-fire" style="font-size: 4em;"></span>
+                        <img src="<%= emps[i].Picture %>" class="img img-responsive">
                         <span><h5><% if(!emps[i].Phone){ %>Not Available<%}else{%><%= emps[i].Phone%><%}%></h5></span>
                         <span><h5><a href="mailto:<%= emps[i].Email%>" target="_blank"><%= emps[i].Email%></a></h5></span>
                         <h5><%= emps[i].Assignment%></h5>

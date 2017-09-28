@@ -7,3 +7,5 @@ npm-debug.log
 employeePics/
 !employeePics/default.png
 
+cache/
+uploads/
