@@ -32,10 +32,13 @@
                     </div>
                     <div class="panel-body text-center">
                         <img src="<%= emps[i].Picture %>" class="img img-responsive">
+                    </div>
+                        <div class="panel-footer">
                         <span><h5><% if(!emps[i].Phone){ %>Not Available<%}else{%><%= emps[i].Phone%><%}%></h5></span>
                         <span><h5><a href="mailto:<%= emps[i].Email%>" target="_blank"><%= emps[i].Email%></a></h5></span>
                         <h5><%= emps[i].Assignment%></h5>
-                    </div>
+                        </div>
+
                 </div>
             </div>
            <% }%>
