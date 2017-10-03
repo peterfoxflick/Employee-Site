@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <title>FTC Employees | References</title>
+</head>
+<body>
+<% include ../partials/nav.ejs %>
+<div class="container">
+    <!-- <table id="table"></table> -->
+    <div id="toolbar" class="btn-group">
+        <button type="button" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
+        <button type="button" class="btn btn-default">
+            <i class="glyphicon glyphicon-heart"></i>
+        </button>
+        <button type="button" class="btn btn-default">
+            <i class="glyphicon glyphicon-trash"></i>
+        </button>
+        <button type="button" class="btn btn-default">
+            Account
+        </button>
+        <button type="button" class="btn btn-default">
+            Extensions
+        </button>
+        <button type="button" class="btn btn-default">
+            Form
+        </button>
+        <button type="button" class="btn btn-default">
+            Info
+        </button>
+    </div>
+    <table id="table"
+           data-toggle="table"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-toolbar="#toolbar">
+        <thead>
+        <tr>
+            <th data-field="name">Name</th>
+            <th data-field="stargazers_count">Stars</th>
+            <th data-field="forks_count">Forks</th>
+            <th data-field="description">Description</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<script>
+    $('#table').bootstrapTable({
+        columns: [{
+            field: 'title',
+            title: 'Title'
+        }, {
+            field: 'username',
+            title: 'Username'
+        }, {
+            field: 'password',
+            title: 'Password'
+        }, {
+            field: 'other',
+            title: 'Other Info'
+        }],
+        data: [{
+            id: 1,
+            name: 'Item 1',
+            price: '$1'
+        }, {
+            id: 2,
+            name: 'Item 2',
+            price: '$2'
+        }]
+    });
+</script>
+</body>
+</html>

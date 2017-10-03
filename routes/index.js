@@ -66,6 +66,13 @@ router.get('/tutorialrequest', (req, res) => {
 )
 });
 
+// GET References
+router.get('/references', (req, res) => {
+  res.render('employee/references', {
+    user: req.session.user
+  })
+});
+
 // POST login details
 router.post('/login', (req, res) => {
 
