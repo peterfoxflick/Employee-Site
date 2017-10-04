@@ -98,11 +98,28 @@ To edit that API reference, login to Swaggerhub with the FTC GitHub account.
 
 ## <a name="tips"></a> IV. Tips  
 
-Coming Soon
+Coming soon
 
 ## <a name="general"></a> V. General Guides  
 
-Coming Soon
+### Setting up the Development Environment
+#### First Steps
+First make sure you have both git and node installed on your system. You may also
+want to install nodemon global using npm install -g nodemon.
+
+You are free to use whichever IDE or text editor you wish, however, the FTC
+does have an Academic License for the JetBrains Suite of IDEs. For more information on
+how to access this subscription, see [this article](http://byu-idaho.screenstepslive.com/s/16915/m/66775/l/751715)   
+#### Clone the project
+Go to the ftcemployees GitHub account and clone the Employee-Site repository. 
+When you have the project cloned, checkout a new git branch to work on. You should
+never work directly on the Master branch. 
+
+#### Configure Modules
+Open a terminal in the project root directory and run npm install to install the necessary
+node packages. Please note that the connectionString.js file is not saved in GitHub. This file
+contains the login configuration for the database. As such, you will not be able to use any database
+resources until you create a connectionString.js file in the modules folder. 
 
 ## <a name="troubleshooting"></a> VI. Troubleshooting 
 

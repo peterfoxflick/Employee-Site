@@ -5,8 +5,13 @@
 // Creates and exports a connection pool
 
 let mysql = require('mysql');
-let connString = require('./connectionString');
 
-module.exports = mysql.createPool(connString);
+try {
+    let connString = require('./connectionString');
 
+    module.exports = mysql.createPool(connString);
 
+} catch (e) {
+    console.log('WARNING: Could not connect to database. Certain site functionality will now be broken')
+    module.exports = null;
+}

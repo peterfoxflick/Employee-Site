@@ -5,7 +5,7 @@ $(document).ready(function(){
        query = '';
        $('#d').html('');
        $('#buttons').children().addClass("fadeOutDown").hide();
-       $('#tier1').removeClass('fadeOutDown').show().addClass("fadeInLeft");
+       $('#tier1').removeClass('fadeOutDown').show().addClass("fadeIn");
   });
 });
 
@@ -13,33 +13,33 @@ $(document).ready(function(){
 function showTier2(n,q) {
   $('#tier1').addClass("animated fadeOutDown");
   setTimeout(function(){
-    $('#' + n).removeClass('fadeOutDown').show().addClass("animated fadeInLeft");
+    $('#' + n).removeClass('fadeOutDown').show().addClass("animated fadeIn");
     $('#tier1').hide();
   },400);
   query += q;
 }
 
 function showRoleCheck(t, q) {
-  $(`#${t}`).removeClass('fadeInLeft').addClass('fadeOutDown');
+  $(`#${t}`).removeClass('fadeIn').addClass('fadeOutDown');
   setTimeout(function(){
-    $('#RoleCheck').removeClass('fadeOutDown').show().addClass("animated fadeInLeft");
+    $('#RoleCheck').removeClass('fadeOutDown').show().addClass("animated fadeIn");
     $(`#${t}`).hide();
   },400);
   query += q;
 }
 
 function showMacRoleCheck(t) {
-  $(`#${t}`).removeClass('fadeInLeft').addClass('fadeOutDown');
+  $(`#${t}`).removeClass('fadeIn').addClass('fadeOutDown');
   setTimeout(function(){
-    $('#RoleCheckMac').removeClass('fadeOutDown').show().addClass("animated fadeInLeft");
+    $('#RoleCheckMac').removeClass('fadeOutDown').show().addClass("animated fadeIn");
     $(`#${t}`).hide();
   },400);
 }
 
 function showPersonalCheck(t, q){
-  $(`#${t}`).removeClass('fadeInLeft').addClass('fadeOutDown');
+  $(`#${t}`).removeClass('fadeIn').addClass('fadeOutDown');
   setTimeout(function(){
-    $('#personalCheck').removeClass('fadeOutDown').show().addClass("animated fadeInLeft");
+    $('#personalCheck').removeClass('fadeOutDown').show().addClass("animated fadeIn");
     $(`#${t}`).hide();
   },400);
   query += q;
@@ -49,7 +49,7 @@ function showiLearnTier() {
   $('#buttons').children().addClass("fadeOutDown");
   setTimeout(function(){
     $('#buttons').children().hide();
-    $('#ilearnTier').removeClass('fadeOutDown').show().addClass("animated fadeInLeft");
+    $('#ilearnTier').removeClass('fadeOutDown').show().addClass("animated fadeIn");
   },400);
 }
 
@@ -62,7 +62,7 @@ function showPanel(q) {
     q = query;
   }
   $('#buttons').children().addClass("fadeOutDown").hide();
-  $('#d').html(`<div class="panel panel-accent animated fadeInLeft">
+  $('#d').html(`<div class="panel panel-accent animated fadeIn">
                     <div class="panel-heading text-center">
                         <h3>${list[q].title}</h3>
                      </div>
