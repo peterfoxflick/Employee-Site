@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+    <title>FTC Employees | Employee List</title>
+</head>
+<body>
+<% include ../partials/nav.ejs %>
+<div class="jumbotron animated fadeInLeft">
+    <div class="container">
+        <h1>Employee List</h1>
+        <div class="row">
+            <!--searches the table by using a javascript function-->
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><span
+                            class="glyphicon glyphicon-search"></span></span>
+                <input id="search" class="form-control" onkeyup="cardSearch('search','cards')"
+                       placeholder="Search by Name">
+            </div>
+        </div>
+    </div>
+    </div></body></html>

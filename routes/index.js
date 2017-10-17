@@ -100,6 +100,10 @@ router.post('/login', (req, res) => {
 });
 
 
+router.get('/avservices', (req, res)=>{
+    res.render('av/avservices');
+});
+
 //GET logout
 router.get('/logout', (req, res) => {
   // destroy session, return login page
