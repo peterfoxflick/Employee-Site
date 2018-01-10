@@ -39,7 +39,7 @@ app.use(minify({cache: path.join(__dirname, 'cache')}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(
     {secret: 'dHwSHOKF3scpzz83',
-     cookie: { maxAge: 2628000000 },
+     cookie: { maxAge: 86400000 },
      saveUninitialized: true,
      resave: true
 }));
