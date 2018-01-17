@@ -4,6 +4,12 @@
     <% include ../partials/head.ejs %>
     <script src="/javascripts/adminEmps.js"></script>
     <script src="/javascripts/tableSearch.js"></script>
+
+    <style type="text/css">
+        #updateBtn {
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
 <% include ../partials/nav.ejs %>
@@ -88,6 +94,13 @@
         </table>
 
 
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="padding-right: 2%">
+
+            <button id='updateBtn' class="btn btn-accent pull-right">Update All</button>
+
+        </div>
     </div>
 </div>
 
