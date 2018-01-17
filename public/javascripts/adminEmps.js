@@ -3,7 +3,7 @@
  * @param id
  */
 function updateUser(id) {
-  userInfo = {
+  let userInfo = {
     id: id,
     email: $('#'+id+'Email').val(),
     team: $('#'+id+'Team').val(),
@@ -87,4 +87,30 @@ function addEmp() {
   setTimeout(function(){
     window.location.reload();
   }, 5000);
+}
+
+let toUpdate = new Set([])
+
+function addToUpdate(id) {
+  toUpdate.add(id);
+}
+
+function updateAll() {
+  let userArray = [];
+  toUpdate.forEach((id) => {
+      userArray.push({
+          id: id,
+          email: $('#'+id+'Email').val(),
+          team: $('#'+id+'Team').val(),
+          assignment: $('#'+id+'Assign').val(),
+          active: $('#'+id+'Active').is(':checked') ? 1 : 0,
+          admin: $('#'+id+'Admin').is(':checked') ? 1 : 0
+      });
+  });
+  console.log(userArray);
+  $.post('/adminTools/updateAll', {users: userArray.toString()}, (data, status) => {
+    console.log(data);
+    console.log(status);
+  });
+
 }

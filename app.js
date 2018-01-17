@@ -45,12 +45,13 @@ app.use(session(
 }));
 
 app.use('/', index);
+app.use('/adminTools', adminTools);
 app.use(loginValidation);
 app.use('/empTools', empTools);
 app.use('/api', api);
 app.use('/userTools', userTools);
 app.use(adminValidation);
-app.use('/adminTools', adminTools);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

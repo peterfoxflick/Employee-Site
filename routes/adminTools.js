@@ -225,6 +225,17 @@ router.post('/delApp', (req, res)=> {
   });
 });
 
+
+router.post('/updateAll', (req, res) => {
+   let users = req.body;
+   users.map((user, i) => {
+
+   });
+
+    res.send('whatup');
+});
+
+
 /**
  * Gets a list of all applications, and adds a row for each app in the gururatings for the inserted user
  * @param insertId - The id of the inserted user
