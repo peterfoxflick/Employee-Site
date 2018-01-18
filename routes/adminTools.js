@@ -227,12 +227,42 @@ router.post('/delApp', (req, res)=> {
 
 
 router.post('/updateAll', (req, res) => {
-   let users = JSON.parse(req.body.users);
-  console.log(users);
+  let users = JSON.parse(req.body.users);
+  let updateUser = require('../modules/admin/updateUser');
+  let errthrown = false;
+  users.map((user) => {
+    user = sanitizeUser(user, req.sanitize);
+    updateUser(user, (err)=> {
+      if(err) {
+        console.log(err);
+        errthrown = true;
+      }
+    });
 
-    res.send('whatup');
+  });
+  if(errthrown) {
+    res.json({
+      message: "ERROR: Could not update"
+    })
+  }
+  res.json({
+    message:"Updated Successfully"
+  })
 });
 
+
+function sanitizeUser(user, sanitize) {
+  return {
+    id: sanitize(user.id),
+    email: sanitize(user.email),
+    assignment: sanitize(user.assignment),
+    // sanitize was returning undefined when sanitizing zero value for admin and active
+    // so... this is what I came up with... :)
+    active: parseInt(sanitize(user.active.toString())),
+    team: sanitize(user.team),
+    admin: parseInt(sanitize(user.admin.toString()))
+  }
+}
 
 /**
  * Gets a list of all applications, and adds a row for each app in the gururatings for the inserted user
