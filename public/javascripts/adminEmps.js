@@ -95,7 +95,14 @@ function addToUpdate(id) {
   toUpdate.add(id);
 }
 
+/**
+ *
+ */
 function updateAll() {
+  if(!toUpdate.size) {
+    console.log('set is empty');
+    return;
+  }
   let userArray = [];
   toUpdate.forEach((id) => {
       userArray.push({
@@ -108,7 +115,7 @@ function updateAll() {
       });
   });
   console.log(userArray);
-  $.post('/adminTools/updateAll', {users: userArray.toString()}, (data, status) => {
+  $.post('/adminTools/updateAll', {users: JSON.stringify(userArray)}, (data, status) => {
     console.log(data);
     console.log(status);
   });

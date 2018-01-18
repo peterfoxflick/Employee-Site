@@ -227,10 +227,8 @@ router.post('/delApp', (req, res)=> {
 
 
 router.post('/updateAll', (req, res) => {
-   let users = req.body;
-   users.map((user, i) => {
-
-   });
+   let users = JSON.parse(req.body.users);
+  console.log(users);
 
     res.send('whatup');
 });
