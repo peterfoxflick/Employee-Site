@@ -100,7 +100,12 @@ function addToUpdate(id) {
  */
 function updateAll() {
   if(!toUpdate.size) {
-    console.log('set is empty');
+    $.notify({
+      title: '<strong>Warning!</strong>',
+      message: 'No changes to save'
+    }, {
+      type: 'danger'
+    });
     return;
   }
   let userArray = [];
@@ -116,8 +121,19 @@ function updateAll() {
   });
   console.log(userArray);
   $.post('/adminTools/updateAll', {users: JSON.stringify(userArray)}, (data, status) => {
-    console.log(data);
-    console.log(status);
+    $.notify({
+      title: '<strong>Success!</strong>',
+      message: data.message
+    },{
+      type: 'success'
+    });
+  }).fail(function(data){
+    $.notify({
+      title: '<strong>Warning!</strong>',
+      message: data.responseJSON.message + '. Information not updated'
+    }, {
+      type: 'danger'
+    });
   });
 
 }
