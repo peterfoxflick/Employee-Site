@@ -3,7 +3,7 @@
  * @param id
  */
 function updateUser(id) {
-  userInfo = {
+  let userInfo = {
     id: id,
     email: $('#'+id+'Email').val(),
     team: $('#'+id+'Team').val(),
@@ -87,4 +87,53 @@ function addEmp() {
   setTimeout(function(){
     window.location.reload();
   }, 5000);
+}
+
+let toUpdate = new Set([])
+
+function addToUpdate(id) {
+  toUpdate.add(id);
+}
+
+/**
+ *
+ */
+function updateAll() {
+  if(!toUpdate.size) {
+    $.notify({
+      title: '<strong>Warning!</strong>',
+      message: 'No changes to save'
+    }, {
+      type: 'danger'
+    });
+    return;
+  }
+  let userArray = [];
+  toUpdate.forEach((id) => {
+      userArray.push({
+          id: id,
+          email: $('#'+id+'Email').val(),
+          team: $('#'+id+'Team').val(),
+          assignment: $('#'+id+'Assign').val(),
+          active: $('#'+id+'Active').is(':checked') ? 1 : 0,
+          admin: $('#'+id+'Admin').is(':checked') ? 1 : 0
+      });
+  });
+  console.log(userArray);
+  $.post('/adminTools/updateAll', {users: JSON.stringify(userArray)}, (data, status) => {
+    $.notify({
+      title: '<strong>Success!</strong>',
+      message: data.message
+    },{
+      type: 'success'
+    });
+  }).fail(function(data){
+    $.notify({
+      title: '<strong>Warning!</strong>',
+      message: data.responseJSON.message + '. Information not updated'
+    }, {
+      type: 'danger'
+    });
+  });
+
 }
