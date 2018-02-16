@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 // GET issue routing page
 router.get('/issuerouting', (req, res) => {
   let sess = req.session;
-  res.render('staticPages/issuerouting', {
+  // res.render('staticPages/issuerouting', {
     user: sess.user
   });
 });
