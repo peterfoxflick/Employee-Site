@@ -104,6 +104,8 @@ Coming soon
 
 ### Setting up the Development Environment
 #### First Steps
+If you wish to use a JetBrains IDE, follow this guide: 
+http://byu-idaho.screenstepslive.com/s/16915/m/66775/l/751715-setting-up-a-jetbrains-ide-license
 First make sure you have both git and node installed on your system. You may also
 want to install nodemon global using npm install -g nodemon.
 
