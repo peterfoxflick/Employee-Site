@@ -66,7 +66,13 @@ router.get('/getRatings', (req, res)=> {
   });
 });
 
-
-
+/**
+ * This endpoint is used for the coding challenge in the FTC
+ * Web Dev evaluation
+ */
+router.get('/challenge', (req, res) => {
+  const mock = require('../modules/common/MOCK_DATA');
+  res.json(mock);
+});
 
 module.exports = router;
