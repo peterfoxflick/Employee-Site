@@ -12,6 +12,7 @@ let empTools = require('./routes/employeeTools');
 let api = require('./routes/api');
 let userTools = require('./routes/userTools');
 let adminTools = require('./routes/adminTools');
+let passwords = require('./routes/passwords');
 let adminValidation = require('./modules/admin/adminValidation');
 let minify = require('express-minify');
 let compression = require('compression');
@@ -45,6 +46,7 @@ app.use(session(
 }));
 
 app.use('/', index);
+app.use('/passwords', passwords);
 app.use(loginValidation);
 app.use('/empTools', empTools);
 app.use('/api', api);
@@ -74,4 +76,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-module.exports = app;
+app.listen(3000,'0.0.0.0', function(){
+  console.log("Listening to port: " + 3000)
+})
+//module.exports = app;
