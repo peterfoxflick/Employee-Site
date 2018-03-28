@@ -8,7 +8,7 @@
 <% include ../partials/nav.ejs %>
 <div class="jumbotron">
     <div class="container">
-        <h1>Password Lists</h1>
+        <h1>Password List</h1>
         <div class="row">
             <!--searches the table by using a javascript function-->
             <div class="input-group">
@@ -16,62 +16,77 @@
                             class="glyphicon glyphicon-search"></span></span>
                 <input id="search" class="form-control" onkeyup="cardSearch('search','cards')"
                        placeholder="Search by Name">
+
+                <span class="input-group-addon" id="basic-addon2" data-toggle="collapse" data-target="#addPass" aria-expanded="false"   aria-controls="collapseExample">+</span>
             </div>
         </div>
-    </div>
 
-    <p>
-  <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#addPass" aria-expanded="false" aria-controls="collapseExample">
-    Add New Password
-  </button>
-</p>
-
-
-
-
-<div class="collapse" id="addPass">
-    <div class="card">
-                <form id="newEmpForm" action="/passwords/add" method="post">
+        <div class="collapse col-sm-8 col-sm-offset-2" id="addPass" style="padding-top:30px">
+            <div class="card">
+                <form id="newEmpForm" action="/passwords/add" enctype="multipart/form-data" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="input-group">
+
+                            <div class="form-group col-md-12">
                                 <label for="name">Name: </label>
                                 <input class="form-control" required type="text" id="name" name="name">
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <label for="description">Description: </label>
-                                <input type="text" id="description" required name="description" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group">
+                        
+
+                            <div class="form-group col-md-12">
                                 <label for="pass">Password: </label>
                                 <input type="text" id="pass" required name="pass" class="form-control">
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
+                        
+                            
+                            <div class="form-group col-md-12">
                                 <label for="url">Url: </label>
                                 <input type="text" id="url" name="url" class="form-control">
                             </div>
+                        
                         </div>
+                        <div class="col-md-6">
+                            
+                            <div class="form-group col-md-12">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Description: </span>
+                                </div>
+                                <textarea class="form-control" id="description" name="description" aria-label="With textarea"></textarea>
+                            </div>
+
+
+                            <div class="custom-file col-md-12">
+                                <input type="file" accept=".png" class="custom-file-input" id="picture" name="picture">
+                                <label class="custom-file-label" for="picture">Choose file for Image</label>
+                            </div>
+
+                        </div>
+
+
                     </div>
+
+
                     <div class="modal-footer">
-                        <input type="submit" value="Submit" class="btn "/>
+                        <input type="submit" value="Submit" class="btn btn-success"/>
 
                         <!-- <button type="button" class="btn btn-primary" onclick="addPassword()" data-dismiss="modal"
                                 data-toggle="modal" data-target="#myModal">Add password
                         </button> -->
-                        <button type="button" class="btn " data-dismiss="modal" data-toggle="collapse" data-target="#addPass">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="collapse" data-target="#addPass">Close</button>
                     </div>
                 </form>
 
             </div>
 </div>
+
+
+
+
+    </div>
+
+
+
+
 </div>
 
 
@@ -89,7 +104,7 @@
                         <span><h4><a href="<%= passwords[i].Url %>" class="h4"><%= passwords[i].Name %></a></h4></span>
                     </div>
                     <div class="panel-body text-center">
-                        <img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;">
+                        <a href="<%= passwords[i].Url %>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
                     </div>
                         <div class="panel-footer">
                             <span><h5><%= passwords[i].Pass %></h5></span>

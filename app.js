@@ -45,6 +45,11 @@ app.use(session(
      resave: true
 }));
 
+
+
+
+
+
 app.use('/', index);
 app.use('/passwords', passwords);
 app.use(loginValidation);
@@ -53,6 +58,11 @@ app.use('/api', api);
 app.use('/userTools', userTools);
 app.use(adminValidation);
 app.use('/adminTools', adminTools);
+
+
+
+
+
 
 
 // catch 404 and forward to error handler

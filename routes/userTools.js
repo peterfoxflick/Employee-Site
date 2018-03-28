@@ -142,6 +142,7 @@ router.post('/uploadPicture', upload.single('newPic'),(req, res, next)=> {
   let sess = req.session;
   let removePic = require('../modules/user/removeProfilePic');
   removePic(sess.user.Picture);
+  
   let updatePic = require('../modules/user/updateProfilePic');
   updatePic(sess.user.Id, req.file.filename, (err)=>{
     if(err) {

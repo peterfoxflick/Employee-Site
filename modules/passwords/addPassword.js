@@ -19,8 +19,8 @@ function addPass(newPass, callback) {
 //     url: req.sanitize(req.body.url),
 //   };
 
-  pool.query(SQL`INSERT INTO passwords (Name, Description, Pass, Url) 
-  				 VALUES (${newPass.name}, ${newPass.description}, ${newPass.pass}, ${newPass.url});`,
+  pool.query(SQL`INSERT INTO passwords (Name, Description, Pass, Url, Img) 
+  				 VALUES (${newPass.name}, ${newPass.description}, ${newPass.pass}, ${newPass.url}, ${newPass.img});`,
       (err, res)=> {
         if(err) {
           callback(err);
