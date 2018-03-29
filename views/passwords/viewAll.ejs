@@ -3,6 +3,7 @@
 <head>
     <% include ../partials/head.ejs %>
     <title>FTC Passwords | Password List</title>
+    <link rel="stylesheet" href="/stylesheets/passwords.css">
 </head>
 <body>
 <% include ../partials/nav.ejs %>
@@ -77,16 +78,8 @@
                 </form>
 
             </div>
-</div>
-
-
-
-
+        </div>
     </div>
-
-
-
-
 </div>
 
 
@@ -99,17 +92,24 @@
         <div class="row text-center">
             <% for(var i = 0; i < passwords.length; i++) { %>
             <li><div class="col-sm-12 col-md-6 col-lg-4 animated fadeIn">
-                <div class="panel <% if(i % 2 == 0 ) {%>panel-accent<%} else {%> panel-primary <%}%> empCard">
-                    <div class="panel-heading">
-                        <span><h4><a href="<%= passwords[i].Url %>" class="h4"><%= passwords[i].Name %></a></h4></span>
-                    </div>
-                    <div class="panel-body text-center">
-                        <a href="<%= passwords[i].Url %>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
-                    </div>
-                        <div class="panel-footer">
-                            <span><h5><%= passwords[i].Pass %></h5></span>
-                            <span><p><%= passwords[i].Description %></p></span>
+                    <div class="panel <% if(i % 2 == 0 ) {%>panel-accent<%} else {%> panel-primary <%}%> empCard">
+                        
+                        <div class="panel-heading" id="card-header">
+                            <span><h4 style="display:inline;"><a href="<%= passwords[i].Url %>" class="h4"><%= passwords[i].Name %></a></h4></span>
+                            
+                            <a class="editBtn" href='#' data-toggle="modal" data-target="#edit" data-id="<%=passwords[i].PasswordID %>" ><span class="glyphicon glyphicon-edit editBtn"></span></a>
+                            <button class="editBtn">HERE I AM</button>
                         </div>
+
+
+                        <div class="panel-body text-center">
+                            <a href="<%= passwords[i].Url %>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
+                       
+                        </div>
+                            <div class="panel-footer">
+                                <span><h5><%= passwords[i].Pass %></h5></span>
+                                <span><p><%= passwords[i].Description %></p></span>
+                            </div>
 
                 </div>
             </div>
@@ -118,6 +118,14 @@
         </ul>
     </section>
 </div>
+
+
+
+<% include edit.ejs%>
 <script src="/javascripts/tableSearch.js" type="text/javascript" rel="script"></script>
+
+<script src="/javascripts/passwords.js" type="text/javascript" rel="script"></script>
+
+
 </body>
 </html>
