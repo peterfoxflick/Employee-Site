@@ -1,4 +1,6 @@
 connectionString.js
+dbconnect.js
+
 node_modules/
 .idea
 cache/*
