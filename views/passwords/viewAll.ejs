@@ -4,9 +4,11 @@
     <% include ../partials/head.ejs %>
     <title>FTC Passwords | Password List</title>
     <link rel="stylesheet" href="/stylesheets/passwords.css">
+
 </head>
 <body>
 <% include ../partials/nav.ejs %>
+
 <div class="jumbotron">
     <div class="container">
         <h1>Password List</h1>
@@ -22,9 +24,13 @@
             </div>
         </div>
 
+
+
+
+
         <div class="collapse col-sm-8 col-sm-offset-2" id="addPass" style="padding-top:30px">
             <div class="card">
-                <form id="newEmpForm" action="/passwords/add" enctype="multipart/form-data" method="post">
+                <form id="newPassForm" action="/passwords/add" enctype="multipart/form-data" method="post">
                     <div class="row">
                         <div class="col-md-6">
 
@@ -91,28 +97,42 @@
         <ul id="cards" style="list-style: none">
         <div class="row text-center">
             <% for(var i = 0; i < passwords.length; i++) { %>
+
+
             <li><div class="col-sm-12 col-md-6 col-lg-4 animated fadeIn">
+
                     <div class="panel <% if(i % 2 == 0 ) {%>panel-accent<%} else {%> panel-primary <%}%> empCard">
                         
                         <div class="panel-heading" id="card-header">
-                            <span><h4 style="display:inline;"><a href="<%= passwords[i].Url %>" class="h4"><%= passwords[i].Name %></a></h4></span>
                             
-                            <a class="editBtn" href='#' data-toggle="modal" data-target="#edit" data-id="<%=passwords[i].PasswordID %>" ><span class="glyphicon glyphicon-edit editBtn"></span></a>
-                            <button class="editBtn">HERE I AM</button>
+                            <span><h4 style="display:inline;">
+                                <a href="<%= passwords[i].Url %>" class="h4" id="passName-<%= passwords[i].PasswordID%>"><%=passwords[i].Name %></a>
+                            </h4></span>
+                            
+                            <span class="editBtn" onclick="editclicked(<%= passwords[i].PasswordID %>)">
+                                <a href='#' data-toggle="modal" data-target="#edit" data-id="<%=passwords[i].PasswordID %>" >
+                                    <span class="glyphicon glyphicon-edit editBtnImg"></span>
+                                </a>
+                            </span>
+
                         </div>
 
 
                         <div class="panel-body text-center">
-                            <a href="<%= passwords[i].Url %>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
+                            
+                            <a href="<%= passwords[i].Url %>" id="passPic-<%= passwords[i].PasswordID%>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
                        
                         </div>
+                            
                             <div class="panel-footer">
-                                <span><h5><%= passwords[i].Pass %></h5></span>
-                                <span><p><%= passwords[i].Description %></p></span>
+                                <span id="passPass-<%= passwords[i].PasswordID%>" ><h5><%= passwords[i].Pass %></h5></span>
+                                <span id="passDesc-<%= passwords[i].PasswordID%>" ><p><%= passwords[i].Description %></p></span>
                             </div>
 
                 </div>
             </div>
+
+
            <% }%>
         </div></li>
         </ul>
