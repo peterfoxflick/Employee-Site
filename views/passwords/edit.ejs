@@ -9,25 +9,25 @@
                 <h4 class="modal-title">Edit Password - ID:<span id="editPassId"></span></h4>
             </div>
             <div class="modal-body">
-                <form id="editPassword" action="/passwords/edit" enctype="multipart/form-data" method="post">
+                <form id="editPassword" action="/passwords/edit" method="post">
                     <div class="row">
                         <div class="col-md-6">
 
                             <div class="form-group col-md-12">
-                                <label for="name">Name: </label>
-                                <input class="form-control" required type="text" id="editName" name="name">
+                                <label for="editName">Name: </label>
+                                <input class="form-control" required type="text" id="editName" name="editName">
                             </div>
                         
 
                             <div class="form-group col-md-12">
-                                <label for="pass">Password: </label>
-                                <input type="text" id="editPass" required name="pass" class="form-control">
+                                <label for="editPass">Password: </label>
+                                <input type="text" id="editPass" required name="editPass" class="form-control">
                             </div>
                         
                             
                             <div class="form-group col-md-12">
-                                <label for="url">Url: </label>
-                                <input type="text" id="editUrl" name="url" class="form-control">
+                                <label for="editUrl">Url: </label>
+                                <input type="text" id="editUrl" name="editUrl" class="form-control">
                             </div>
                         
                         </div>
@@ -37,13 +37,13 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Description: </span>
                                 </div>
-                                <textarea class="form-control" id="editDescription" name="description" aria-label="With textarea"></textarea>
+                                <textarea class="form-control" id="editDescription" name="editDescription" aria-label="With textarea"></textarea>
                             </div>
 
 
                             <div class="custom-file col-md-12">
-                                <input type="file" accept=".png" class="custom-file-input" id="editPicture" name="picture">
-                                <label class="custom-file-label" for="picture">Choose file for Image</label>
+                                <input type="file" accept=".png" class="custom-file-input" id="editPicture" name="editPicture">
+                                <label class="custom-file-label" for="editPicture">Choose file for Image</label>
                             </div>
 
                         </div>
@@ -53,7 +53,7 @@
 
 
                     <div class="modal-footer">
-                        <input class="form-control" required type="text" id="passIdVal" name="passId">
+                        <input class="form-control" required type="hidden" id="passIdVal" name="passIdVal">
 
                         <input type="submit" value="Submit" class="btn btn-success"/>
 

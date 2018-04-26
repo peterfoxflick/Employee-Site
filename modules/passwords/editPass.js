@@ -23,10 +23,10 @@ function editPass(newPass, callback) {
 
   pool.query(SQL`UPDATE passwords 
   				SET Name = ${newPass.name}, 
-  				SET Description = ${newPass.description}, 
-  				SET Pass = ${newPass.pass}, 
-  				SET Url = ${newPass.url} 
-  				WHERE Id = ${newPass.passId};`
+  				 Description = ${newPass.description}, 
+  				 Pass = ${newPass.pass}, 
+  				 Url = ${newPass.url} 
+  				WHERE PasswordId = ${newPass.passId};`,
 
      (err, res)=> {
         if(err) {
