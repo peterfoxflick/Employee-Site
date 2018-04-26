@@ -30,14 +30,14 @@ router.get('/', (req, res) => {
 
 
 
-let uploadPassPic = require('../modules/passwords/multerHandlersPassPic');
+//let uploadPassPic = require('../modules/passwords/multerHandlersPassPic');
 
-router.post('/add', uploadPassPic.single('picture'), (req, res) => {
+router.post('/add', (req, res) => {
 
   let newPass = {
     name: req.sanitize(req.body.name),
     description: req.sanitize(req.body.description),
-    img: `/images/passwords/${req.file.filename}`,
+    //img: `/images/passwords/${req.file.filename}`,
     pass: req.sanitize(req.body.pass),
     url: req.sanitize(req.body.url),
   };
@@ -66,7 +66,7 @@ router.post('/edit', (req, res) => {
     passId: req.sanitize(req.body.passIdVal),
     name: req.sanitize(req.body.editName),
     description: req.sanitize(req.body.editDescription),
-    img: req.sanitize(req.body.),
+    //img: req.sanitize(req.body.),
     pass: req.sanitize(req.body.editPass),
     url: req.sanitize(req.body.editUrl),
   };
@@ -77,16 +77,16 @@ router.post('/edit', (req, res) => {
   }
 
 
-  if (req.file) 
-  {
-    uploadPassPic.single('picture');
-    newPass{ img: `/images/passwords/${req.file.filename}` };
+  // if (req.file) 
+  // {
+  //   uploadPassPic.single('picture');
+  //   newPass{ img: `/images/passwords/${req.file.filename}` };
 
-  }
+  // }
 
   
 
-  console.log(newPass);
+  // console.log(newPass);
 
  
 

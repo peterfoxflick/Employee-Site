@@ -17,7 +17,7 @@
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><span
                             class="glyphicon glyphicon-search"></span></span>
-                <input id="search" class="form-control" onkeyup="cardSearch('search','cards')"
+                <input id="search" class="form-control" onkeyup="tableSearch('search','tab')"
                        placeholder="Search by Name">
 
                 <span class="input-group-addon" id="basic-addon2" data-toggle="collapse" data-target="#addPass" aria-expanded="false"   aria-controls="collapseExample">+</span>
@@ -61,12 +61,6 @@
                                 <textarea class="form-control" id="description" name="description" aria-label="With textarea"></textarea>
                             </div>
 
-
-                            <div class="custom-file col-md-12">
-                                <input type="file" accept=".png" class="custom-file-input" id="picture" name="picture">
-                                <label class="custom-file-label" for="picture">Choose file for Image</label>
-                            </div>
-
                         </div>
 
 
@@ -93,49 +87,37 @@
 
 
 <div class="container">
+    <!-- Lets get this to be a list view -->
     <section>
-        <ul id="cards" style="list-style: none">
-        <div class="row text-center">
+            <table class="table" id="tab">
+              <thead>
+                <tr>
+
+                  <th scope="col">Name</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Description</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
             <% for(var i = 0; i < passwords.length; i++) { %>
+                <tr>
+                  <td scope="row" >
+                  <a href="<%= passwords[i].Url %>" id="passName-<%= passwords[i].PasswordID%>" target="_blank"><%=passwords[i].Name %></a></td>
+                  <td id="passPass-<%= passwords[i].PasswordID%>"><%= passwords[i].Pass %></td>
+                  <td id="passDesc-<%= passwords[i].PasswordID%>"><%= passwords[i].Description %></td>
+                  <td><span class="editBtn" onclick="editclicked(<%= passwords[i].PasswordID %>)">
+                    <a href='#' data-toggle="modal" data-target="#edit" data-id="<%=passwords[i].PasswordID %>" >
+                        <span class="glyphicon glyphicon-edit editBtnImg"></span>
+                    </a>
+                  </span></td>
+
+                </tr>
+            <% }%>
+                </tbody>
+            </table>
 
 
-            <li><div class="col-sm-12 col-md-6 col-lg-4 animated fadeIn">
-
-                    <div class="panel <% if(i % 2 == 0 ) {%>panel-accent<%} else {%> panel-primary <%}%> empCard">
-                        
-                        <div class="panel-heading" id="card-header">
-                            
-                            <span><h4 style="display:inline;">
-                                <a href="<%= passwords[i].Url %>" class="h4" id="passName-<%= passwords[i].PasswordID%>"><%=passwords[i].Name %></a>
-                            </h4></span>
-                            
-                            <span class="editBtn" onclick="editclicked(<%= passwords[i].PasswordID %>)">
-                                <a href='#' data-toggle="modal" data-target="#edit" data-id="<%=passwords[i].PasswordID %>" >
-                                    <span class="glyphicon glyphicon-edit editBtnImg"></span>
-                                </a>
-                            </span>
-
-                        </div>
-
-
-                        <div class="panel-body text-center">
-                            
-                            <a href="<%= passwords[i].Url %>" id="passPic-<%= passwords[i].PasswordID%>"><img src="<%= passwords[i].Img %>" class="img img-responsive" style="height:100%; width: auto;"></a>
-                       
-                        </div>
-                            
-                            <div class="panel-footer">
-                                <span id="passPass-<%= passwords[i].PasswordID%>" ><h5><%= passwords[i].Pass %></h5></span>
-                                <span id="passDesc-<%= passwords[i].PasswordID%>" ><p><%= passwords[i].Description %></p></span>
-                            </div>
-
-                </div>
-            </div>
-
-
-           <% }%>
-        </div></li>
-        </ul>
     </section>
 </div>
 
